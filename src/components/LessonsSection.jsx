@@ -154,8 +154,8 @@ export default function LessonsSection({ onCTA }) {
             Программа обучения
           </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight" style={{ letterSpacing: '-0.025em' }}>
-            После заявки вы получите доступ к{' '}
-            <span className="gradient-text">12 видеоурокам</span>
+            После заявки вы получите доступ к программе из{' '}
+            <span className="gradient-text">12 видеоуроков</span>{' '}и вводное консультирование
           </h2>
           <p className="text-slate-400 leading-relaxed text-base">
             Уроки идут по шагам: от простого объяснения темы до понимания первых действий,

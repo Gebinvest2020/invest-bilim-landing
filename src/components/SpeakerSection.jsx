@@ -1,4 +1,4 @@
-import { CheckCircle2, Star } from 'lucide-react'
+import { CheckCircle2 } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
 
 const traits = [
@@ -43,17 +43,20 @@ export default function SpeakerSection() {
                       <p className="text-sm text-slate-400 mt-1">Спикер образовательной программы</p>
                     </div>
 
-                    {/* Stars */}
-                    <div className="flex gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={14} style={{ color: '#c9a84c', fill: '#c9a84c' }} />
+                    {/* Badges */}
+                    <div className="flex flex-wrap gap-1.5 justify-center">
+                      {['Простой язык', 'Для новичков', '12 уроков'].map((t) => (
+                        <span key={t} className="px-2.5 py-1 rounded-full text-[11px] font-semibold"
+                          style={{ background: 'rgba(26,86,219,0.14)', border: '1px solid rgba(26,86,219,0.28)', color: '#93c5fd' }}>
+                          {t}
+                        </span>
                       ))}
                     </div>
 
-                    {/* Placeholder note */}
-                    <div className="w-full px-3 py-2.5 rounded-xl text-center text-xs text-slate-500"
+                    {/* Description */}
+                    <div className="w-full px-3 py-2.5 rounded-xl text-center text-xs text-slate-400 leading-relaxed"
                       style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                      [Добавить подтверждённую информацию о спикере]
+                      В программе Мурад объясняет базовые темы простым языком: с чего начать, как не запутаться и какие моменты важно понять перед первыми шагами.
                     </div>
                   </div>
                 </div>
@@ -63,7 +66,7 @@ export default function SpeakerSection() {
               <div className="absolute -right-4 -bottom-4 px-4 py-3 rounded-xl"
                 style={{ background: 'rgba(10,14,26,0.95)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(12px)' }}>
                 <div className="text-xs text-slate-400">Формат обучения</div>
-                <div className="text-sm font-semibold text-white mt-0.5">Видеоуроки</div>
+                <div className="text-sm font-semibold text-white mt-0.5">Видеоуроки + вводная консультация по программе</div>
               </div>
             </div>
           </div>
@@ -76,12 +79,10 @@ export default function SpeakerSection() {
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-5" style={{ letterSpacing: '-0.02em' }}>
               Мурад Назаров —{' '}
-              <span className="gradient-text">спикер программы</span>
+              <span className="gradient-text">автор и спикер видеоуроков</span>
             </h2>
             <p className="text-slate-400 leading-relaxed mb-8 text-base">
-              Мурад Назаров объясняет основы инвестирования простым языком
-              и помогает новичкам разобраться в базовых финансовых понятиях
-              без сложных терминов.
+              Мурад Назаров — автор и спикер видеоуроков. В своих материалах он объясняет основы инвестирования простым языком, без сложных терминов и давления.
             </p>
 
             <div className="flex flex-col gap-3 mb-8">
