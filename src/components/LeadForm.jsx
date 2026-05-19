@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
 
+const SCRIPT_URL =
+  'https://script.google.com/macros/s/AKfycbwzh2NN5JaQawAXgbSzB8lwww5UdjJ17xQc7U9gXUnMSIwk1RU5bZEd4YJ697vb8yQXTw/exec'
+
 // Set to true to auto-check the consent checkbox
 const AUTO_CHECK_CONSENT = true
 
@@ -12,6 +15,16 @@ function formatPhone(value) {
   if (digits.length > 5) result += ' ' + digits.slice(5, 7)
   if (digits.length > 7) result += ' ' + digits.slice(7, 9)
   return result
+}
+
+async function getIP() {
+  try {
+    const res = await fetch('https://api.ipify.org?format=json')
+    const data = await res.json()
+    return data.ip || 'unknown'
+  } catch {
+    return 'unknown'
+  }
 }
 
 export default function LeadForm({ onLegal }) {
@@ -44,12 +57,31 @@ export default function LeadForm({ onLegal }) {
     if (Object.keys(errs).length) { setErrors(errs); return }
 
     setLoading(true)
-    // TODO: Replace with real API / backend call before going live
-    await new Promise((r) => setTimeout(r, 1000))
-    setLoading(false)
 
-    // Redirect to thank-you page for Google Ads conversion tracking
-    window.location.href = '/thank-you.html'
+    // 1. Получаем IP (если не удалось — 'unknown')
+    const ip = await getIP()
+
+    // 2. Отправляем заявку в Google Apps Script
+    // mode: 'no-cors' — надёжный способ отправки в GAS без проблем с CORS.
+    // Ответ будет непрозрачным, поэтому ориентируемся на catch для ошибок.
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify({
+          name: form.name.trim(),
+          phone: form.phone,
+          ip,
+        }),
+      })
+      // Редирект на страницу благодарности (Google Ads конверсия)
+      window.location.href = '/thank-you.html'
+    } catch {
+      setLoading(false)
+      setErrors({
+        submit: 'Не удалось отправить заявку. Проверьте подключение и попробуйте ещё раз.',
+      })
+    }
   }
 
   return (
@@ -149,6 +181,14 @@ export default function LeadForm({ onLegal }) {
           <p className="text-xs mt-1.5" style={{ color: '#f87171' }}>{errors.consent}</p>
         )}
       </div>
+
+      {/* Submit error */}
+      {errors.submit && (
+        <p className="text-xs text-center px-2 py-2 rounded-lg"
+          style={{ color: '#f87171', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)' }}>
+          {errors.submit}
+        </p>
+      )}
 
       <button
         type="submit"
