@@ -1,15 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Cookie, Settings } from 'lucide-react'
 
 export default function CookieBanner({ onOpenPolicy }) {
-  const [visible, setVisible] = useState(false)
+  // Initialise from localStorage synchronously to avoid cascading effect renders
+  const [visible, setVisible] = useState(() => !localStorage.getItem('cookie_consent'))
   const [showSettings, setShowSettings] = useState(false)
   const [prefs, setPrefs] = useState({ analytics: true, advertising: false })
-
-  useEffect(() => {
-    const stored = localStorage.getItem('cookie_consent')
-    if (!stored) setVisible(true)
-  }, [])
 
   const accept = () => {
     localStorage.setItem('cookie_consent', JSON.stringify({ all: true }))

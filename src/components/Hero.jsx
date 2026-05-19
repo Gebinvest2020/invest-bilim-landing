@@ -384,6 +384,8 @@ export default function Hero({ onCTA }) {
                           alt="Мурад Назаров"
                           className="w-full h-full object-cover"
                           style={{ objectPosition: 'center 15%' }}
+                          fetchpriority="high"
+                          decoding="async"
                         />
                       </div>
                       {/* Online dot */}

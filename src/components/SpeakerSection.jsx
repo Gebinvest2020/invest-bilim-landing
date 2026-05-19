@@ -31,6 +31,8 @@ export default function SpeakerSection() {
                           src="/images/murad-nazarov.png"
                           alt="Мурад Назаров"
                           className="w-full h-full object-cover object-top"
+                          loading="lazy"
+                          decoding="async"
                         />
                       </div>
                       {/* Status dot */}

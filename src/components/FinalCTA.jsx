@@ -1,7 +1,6 @@
-import { ArrowRight, ShieldCheck } from 'lucide-react'
 import LeadForm from './LeadForm'
 
-export default function FinalCTA({ onCTA, onLegal }) {
+export default function FinalCTA({ onLegal }) {
   return (
     <section className="py-20 lg:py-28" style={{ background: 'linear-gradient(180deg, #0d1220 0%, #0a0e1a 100%)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,7 +43,7 @@ export default function FinalCTA({ onCTA, onLegal }) {
             }}>
             <h3 className="text-lg font-semibold text-white mb-1">Записаться на уроки</h3>
             <p className="text-sm text-slate-500 mb-5">Оставьте заявку — мы свяжемся с вами</p>
-            <LeadForm onSuccess={() => {}} onLegal={onLegal} />
+            <LeadForm onLegal={onLegal} />
           </div>
         </div>
       </div>

@@ -51,6 +51,8 @@ function LessonCard({ lesson, onCTA, animDelay }) {
             alt={lesson.title}
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             style={{ objectPosition: lesson.imgPos }}
+            loading="lazy"
+            decoding="async"
             onError={() => setImgError(true)}
           />
         ) : (

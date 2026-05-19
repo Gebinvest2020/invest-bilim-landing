@@ -41,12 +41,12 @@ export default function App() {
         <HowItWorksSection onCTA={openLeadForm} />
         <TestimonialsSection />
         <FAQSection />
-        <FinalCTA onCTA={openLeadForm} onLegal={openLegal} />
+        <FinalCTA onLegal={openLegal} />
       </main>
       <Footer onCTA={openLeadForm} onLegal={openLegal} />
 
       <Modal isOpen={modalOpen} onClose={closeLeadForm} title="Оставьте заявку, чтобы получить доступ к урокам и вводную консультацию по программе">
-        <LeadForm onSuccess={closeLeadForm} onLegal={openLegal} />
+        <LeadForm onLegal={openLegal} />
       </Modal>
 
       <Modal isOpen={legalModal === 'privacy'} onClose={closeLegal} title="Политика конфиденциальности" wide>

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { CheckCircle2, Loader2 } from 'lucide-react'
+import { Loader2 } from 'lucide-react'
 
 // Set to true to auto-check the consent checkbox
 const AUTO_CHECK_CONSENT = true
@@ -14,7 +14,7 @@ function formatPhone(value) {
   return result
 }
 
-export default function LeadForm({ onSuccess, onLegal }) {
+export default function LeadForm({ onLegal }) {
   const [form, setForm] = useState({
     name: '',
     phone: '+998 ',
@@ -44,9 +44,8 @@ export default function LeadForm({ onSuccess, onLegal }) {
     if (Object.keys(errs).length) { setErrors(errs); return }
 
     setLoading(true)
-    // Replace this with your real API / backend call
+    // TODO: Replace with real API / backend call before going live
     await new Promise((r) => setTimeout(r, 1000))
-    console.log('Form submitted:', { name: form.name, phone: form.phone })
     setLoading(false)
 
     // Redirect to thank-you page for Google Ads conversion tracking
