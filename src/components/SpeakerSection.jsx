@@ -16,12 +16,14 @@ export default function SpeakerSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: Card */}
           <div className="flex justify-center">
-            <div className="relative w-full max-w-xs">
+            <div className="w-full max-w-xs">
               {/* Main card */}
               <div className="rounded-3xl overflow-hidden p-0.5"
                 style={{ background: 'linear-gradient(135deg, rgba(26,86,219,0.5), rgba(201,168,76,0.3))' }}>
                 <div className="rounded-3xl overflow-hidden"
                   style={{ background: 'linear-gradient(160deg, #0f1a2e 0%, #0a0e1a 100%)' }}>
+
+                  {/* Card body */}
                   <div className="p-8 flex flex-col items-center text-center gap-5">
                     {/* Avatar */}
                     <div className="relative">
@@ -61,17 +63,26 @@ export default function SpeakerSection() {
                     {/* Description */}
                     <div className="w-full px-3 py-2.5 rounded-xl text-center text-xs text-slate-400 leading-relaxed"
                       style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                      В программе Мурад объясняет базовые темы простым языком: с чего начать, как не запутаться и какие моменты важно понять перед первыми шагами.
+                      Мурад объясняет базовые темы простым языком: с чего начать, как не запутаться и что важно понять перед первыми шагами.
                     </div>
                   </div>
-                </div>
-              </div>
 
-              {/* Floating card */}
-              <div className="absolute -right-4 -bottom-4 px-4 py-3 rounded-xl"
-                style={{ background: 'rgba(10,14,26,0.95)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(12px)' }}>
-                <div className="text-xs text-slate-400">Формат обучения</div>
-                <div className="text-sm font-semibold text-white mt-0.5">Видеоуроки + вводная консультация по программе</div>
+                  {/* Format footer — in-flow, no overlap */}
+                  <div className="px-6 py-4 flex items-center gap-3"
+                    style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+                      style={{ background: 'rgba(26,86,219,0.15)', border: '1px solid rgba(26,86,219,0.25)' }}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-[10px] text-slate-500 uppercase tracking-wider">Формат обучения</div>
+                      <div className="text-xs font-semibold text-white mt-0.5">Видеоуроки + вводная консультация по программе</div>
+                    </div>
+                  </div>
+
+                </div>
               </div>
             </div>
           </div>

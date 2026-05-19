@@ -25,7 +25,7 @@ export default function FinalCTA({ onLegal }) {
                 'Бесплатный доступ к вводным материалам',
                 'Простой язык, понятные примеры',
                 'Что важно понять перед стартом',
-                'Без обещаний дохода — только образование',
+                'Понятный старт без сложных терминов',
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: '#c9a84c' }} />
