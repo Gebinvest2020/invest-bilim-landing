@@ -1,19 +1,4 @@
-import { motion } from 'framer-motion'
 import { ArrowRight, PlayCircle, ShieldCheck } from 'lucide-react'
-
-/* ─── Framer Motion: proper stagger variants ──────────────────────────── */
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: 0.08 } },
-}
-const up = {
-  hidden: { opacity: 0, y: 30 },
-  show:   { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.4, 0, 0.2, 1] } },
-}
-const cardReveal = {
-  hidden: { opacity: 0, x: 52, scale: 0.96 },
-  show:   { opacity: 1, x: 0,  scale: 1,   transition: { duration: 1.0, delay: 0.25, ease: [0.4, 0, 0.2, 1] } },
-}
 
 const stat = [
   { emoji: '📚', label: '12 уроков',       sub: 'программа по шагам' },
@@ -114,14 +99,10 @@ export default function Hero({ onCTA }) {
           {/* ═══════════════════════════════
               LEFT — Heading + CTA
           ═══════════════════════════════ */}
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            animate="show"
-            className="w-full lg:w-[56%] xl:w-[58%] flex flex-col"
-          >
+          <div className="w-full lg:w-[56%] xl:w-[58%] flex flex-col">
+
             {/* Badge */}
-            <motion.div variants={up} className="flex self-start mb-7">
+            <div className="flex self-start mb-7 animate-fade-in-up hero-d0">
               <span
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-wide"
                 style={{
@@ -137,12 +118,11 @@ export default function Hero({ onCTA }) {
                 />
                 АВТОРСКИЙ ВИДЕОКУРС · УЗБЕКИСТАН
               </span>
-            </motion.div>
+            </div>
 
             {/* Heading — LARGE */}
-            <motion.h1
-              variants={up}
-              className="font-extrabold text-white mb-6"
+            <h1
+              className="font-extrabold text-white mb-6 animate-fade-in-up hero-d1"
               style={{
                 fontSize: 'clamp(2.9rem, 6vw, 5rem)',
                 letterSpacing: '-0.038em',
@@ -156,10 +136,10 @@ export default function Hero({ onCTA }) {
               <span className="gradient-text" style={{ display: 'block' }}>
                 с чего начать&nbsp;новичку
               </span>
-            </motion.h1>
+            </h1>
 
             {/* Divider line */}
-            <motion.div variants={up} className="mb-6">
+            <div className="mb-6 animate-fade-in-up hero-d2">
               <div
                 className="h-px w-20"
                 style={{
@@ -167,19 +147,18 @@ export default function Hero({ onCTA }) {
                     'linear-gradient(90deg, rgba(201,168,76,0.8) 0%, rgba(201,168,76,0.2) 100%)',
                 }}
               />
-            </motion.div>
+            </div>
 
             {/* Subtitle */}
-            <motion.p
-              variants={up}
-              className="text-slate-400 mb-8"
+            <p
+              className="text-slate-400 mb-8 animate-fade-in-up hero-d3"
               style={{ fontSize: '1.075rem', lineHeight: 1.8, maxWidth: '480px' }}
             >
               Видеоуроки и вводное консультирование для жителей Узбекистана — понять, что такое инвестиции, с чего начать и как не запутаться, без сложных слов и давления.
-            </motion.p>
+            </p>
 
             {/* Stat chips */}
-            <motion.div variants={up} className="flex flex-wrap gap-2.5 mb-9">
+            <div className="flex flex-wrap gap-2.5 mb-9 animate-fade-in-up hero-d4">
               {stat.map((s) => (
                 <div
                   key={s.label}
@@ -201,10 +180,10 @@ export default function Hero({ onCTA }) {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </div>
 
             {/* CTA row */}
-            <motion.div variants={up} className="flex flex-col sm:flex-row gap-3 mb-6">
+            <div className="flex flex-col sm:flex-row gap-3 mb-6 animate-fade-in-up hero-d5">
               <button
                 onClick={onCTA}
                 className="btn-gold btn-arrow pulse-gold-glow flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold"
@@ -242,12 +221,11 @@ export default function Hero({ onCTA }) {
                 <PlayCircle size={16} />
                 Смотреть программу
               </button>
-            </motion.div>
+            </div>
 
             {/* Disclaimer */}
-            <motion.div
-              variants={up}
-              className="flex items-start gap-2.5 p-3.5 rounded-xl self-start"
+            <div
+              className="flex items-start gap-2.5 p-3.5 rounded-xl self-start animate-fade-in-up hero-d6"
               style={{
                 background: 'rgba(78,205,196,0.05)',
                 border: '1px solid rgba(78,205,196,0.14)',
@@ -258,18 +236,14 @@ export default function Hero({ onCTA }) {
                 Материалы носят образовательный характер. Не является
                 инвестиционной рекомендацией.
               </p>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* ═══════════════════════════════
               RIGHT — Speaker card (scene)
           ═══════════════════════════════ */}
-          <motion.div
-            variants={cardReveal}
-            initial="hidden"
-            animate="show"
-            className="w-full lg:w-[44%] xl:w-[42%] flex justify-center lg:justify-end lg:pt-16"
-          >
+          <div className="w-full lg:w-[44%] xl:w-[42%] flex justify-center lg:justify-end lg:pt-16 animate-card-reveal">
+
             {/* Outer wrapper: card + ambient glow */}
             <div className="relative" style={{ width: '100%', maxWidth: 340 }}>
 
@@ -504,7 +478,7 @@ export default function Hero({ onCTA }) {
               {/* end card */}
             </div>
             {/* end outer wrapper */}
-          </motion.div>
+          </div>
 
         </div>
       </div>
