@@ -25,14 +25,13 @@ export default function SpeakerSection() {
                   <div className="p-8 flex flex-col items-center text-center gap-5">
                     {/* Avatar */}
                     <div className="relative">
-                      <div className="w-32 h-32 rounded-full overflow-hidden"
-                        style={{ border: '3px solid rgba(201,168,76,0.4)', background: 'linear-gradient(135deg, #1a3060, #0d1f40)' }}>
-                        <div className="w-full h-full flex items-center justify-center">
-                          <svg viewBox="0 0 80 80" className="w-24 h-24" fill="none">
-                            <circle cx="40" cy="28" r="20" fill="rgba(148,163,184,0.25)" />
-                            <ellipse cx="40" cy="72" rx="30" ry="22" fill="rgba(148,163,184,0.15)" />
-                          </svg>
-                        </div>
+                      <div className="w-36 h-36 rounded-full overflow-hidden"
+                        style={{ border: '3px solid rgba(201,168,76,0.55)', boxShadow: '0 0 0 6px rgba(201,168,76,0.1), 0 16px 48px rgba(0,0,0,0.6)', background: 'linear-gradient(135deg, #1a3060, #0d1f40)' }}>
+                        <img
+                          src="/images/murad-nazarov.png"
+                          alt="Мурад Назаров"
+                          className="w-full h-full object-cover object-top"
+                        />
                       </div>
                       {/* Status dot */}
                       <div className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-green-400"

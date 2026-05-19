@@ -109,7 +109,7 @@ export default function Hero({ onCTA }) {
           MAIN CONTENT
       ───────────────────────────────────────────────── */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 w-full">
-        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-6">
+        <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-6">
 
           {/* ═══════════════════════════════
               LEFT — Heading + CTA
@@ -270,7 +270,7 @@ export default function Hero({ onCTA }) {
             variants={cardReveal}
             initial="hidden"
             animate="show"
-            className="w-full lg:w-[44%] xl:w-[42%] flex justify-center lg:justify-end"
+            className="w-full lg:w-[44%] xl:w-[42%] flex justify-center lg:justify-end lg:pt-16"
           >
             {/* Outer wrapper: card + ambient glow */}
             <div className="relative" style={{ width: '100%', maxWidth: 340 }}>
@@ -308,7 +308,7 @@ export default function Hero({ onCTA }) {
                   {/* ── Course header area (photo zone) ── */}
                   <div
                     className="relative flex flex-col"
-                    style={{ height: 210, overflow: 'hidden' }}
+                    style={{ height: 262, overflow: 'hidden' }}
                   >
                     {/* Background pattern */}
                     <div
@@ -359,51 +359,48 @@ export default function Hero({ onCTA }) {
                     {/* Avatar — fully contained, anchored to bottom of zone */}
                     <div
                       className="absolute left-1/2 -translate-x-1/2"
-                      style={{ bottom: 24, zIndex: 10 }}
+                      style={{ bottom: 18, zIndex: 10 }}
                     >
                       {/* Conic spin ring */}
                       <div
-                        className="absolute inset-[-4px] rounded-full"
+                        className="absolute inset-[-6px] rounded-full"
                         style={{
                           background:
                             'conic-gradient(from 0deg, rgba(26,86,219,0.9), rgba(201,168,76,0.9), rgba(78,205,196,0.8), rgba(26,86,219,0.9))',
-                          filter: 'blur(2.5px)',
-                          opacity: 0.75,
+                          filter: 'blur(3px)',
+                          opacity: 0.8,
                           animation: 'blob2 9s linear infinite',
                         }}
                       />
                       {/* Photo container */}
                       <div
-                        className="relative w-[88px] h-[88px] rounded-full overflow-hidden"
+                        className="relative w-[164px] h-[164px] rounded-full overflow-hidden"
                         style={{
-                          border: '2.5px solid rgba(255,255,255,0.14)',
+                          border: '3px solid rgba(255,255,255,0.18)',
                           background: 'linear-gradient(135deg, #1a3060, #0d1f40)',
-                          boxShadow: '0 0 0 3px rgba(26,86,219,0.22), 0 20px 48px rgba(0,0,0,0.7)',
+                          boxShadow: '0 0 0 4px rgba(26,86,219,0.25), 0 24px 56px rgba(0,0,0,0.75)',
                         }}
                       >
-                        {/*
-                          ↓ Раскомментируй и замени для реального фото:
-                          <img src="/images/murad-nazarov.jpg" alt="Мурад Назаров"
-                            className="w-full h-full object-cover object-top" />
-                        */}
-                        <svg viewBox="0 0 80 80" className="w-full h-full" fill="none">
-                          <circle cx="40" cy="28" r="19" fill="rgba(148,163,184,0.28)" />
-                          <ellipse cx="40" cy="72" rx="30" ry="23" fill="rgba(148,163,184,0.18)" />
-                        </svg>
+                        <img
+                          src="/images/murad-nazarov.png"
+                          alt="Мурад Назаров"
+                          className="w-full h-full object-cover"
+                          style={{ objectPosition: 'center 15%' }}
+                        />
                       </div>
                       {/* Online dot */}
                       <div
-                        className="absolute bottom-0.5 right-0.5 w-[18px] h-[18px] rounded-full bg-emerald-400"
+                        className="absolute bottom-1.5 right-1.5 w-[22px] h-[22px] rounded-full bg-emerald-400"
                         style={{
-                          border: '2.5px solid #070a17',
-                          boxShadow: '0 0 10px rgba(52,211,153,0.9)',
+                          border: '3px solid #070a17',
+                          boxShadow: '0 0 12px rgba(52,211,153,0.9)',
                         }}
                       />
                     </div>
                   </div>
 
                   {/* ── Card body ── */}
-                  <div className="px-5 pt-7 pb-5 flex flex-col gap-3.5">
+                  <div className="px-5 pt-9 pb-5 flex flex-col gap-3.5">
 
                     {/* Name */}
                     <div className="text-center">

@@ -3,18 +3,22 @@ import { Play, ChevronDown, ChevronUp, Lock, ArrowRight } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
 
 const lessons = [
-  { id: 1, title: 'Что такое инвестиции простыми словами', desc: 'Объясним, что это такое и почему перед первыми шагами важно понять базу.', gradient: 'linear-gradient(135deg, #1a3a6e 0%, #0d2137 60%, #0a0e1a 100%)', accent: '#3b82f6', icon: '📘' },
-  { id: 2, title: 'С чего начать новичку', desc: 'Разберём, что изучить сначала, чтобы не действовать наугад.', gradient: 'linear-gradient(135deg, #1e4d3a 0%, #0d2b1f 60%, #0a0e1a 100%)', accent: '#34d399', icon: '🚀' },
-  { id: 3, title: 'Почему не стоит спешить', desc: 'Покажем, почему быстрые решения часто приводят к ошибкам.', gradient: 'linear-gradient(135deg, #4a2f1a 0%, #2a1a0d 60%, #0a0e1a 100%)', accent: '#f59e0b', icon: '⏳' },
-  { id: 4, title: 'Какие риски важно знать', desc: 'Объясним простыми словами, почему вложения всегда связаны с рисками.', gradient: 'linear-gradient(135deg, #4a1a2f 0%, #2a0d1a 60%, #0a0e1a 100%)', accent: '#f87171', icon: '⚠️' },
-  { id: 5, title: 'Как не запутаться в терминах', desc: 'Разберём самые частые слова и понятия простым человеческим языком.', gradient: 'linear-gradient(135deg, #2d1a4a 0%, #1a0d2a 60%, #0a0e1a 100%)', accent: '#a78bfa', icon: '💬' },
-  { id: 6, title: 'Ошибки начинающих', desc: 'Покажем, какие ошибки чаще всего делают новички и как их заранее замечать.', gradient: 'linear-gradient(135deg, #1a3a3a 0%, #0d2121 60%, #0a0e1a 100%)', accent: '#4ecdc4', icon: '🔍' },
-  { id: 7, title: 'Как выбирать, чему доверять', desc: 'Объясним, как осторожно относиться к громким обещаниям и красивым словам.', gradient: 'linear-gradient(135deg, #3a2a1a 0%, #1f1610 60%, #0a0e1a 100%)', accent: '#c9a84c', icon: '🔎' },
-  { id: 8, title: 'Как понять свой первый шаг', desc: 'Разберём, как подойти к обучению спокойно и без лишней спешки.', gradient: 'linear-gradient(135deg, #1a2a4a 0%, #0d1627 60%, #0a0e1a 100%)', accent: '#60a5fa', icon: '👣' },
-  { id: 9, title: 'Что важно знать о рынке', desc: 'Объясним, почему рынок может меняться и почему это нужно учитывать.', gradient: 'linear-gradient(135deg, #1a4a2a 0%, #0d271a 60%, #0a0e1a 100%)', accent: '#6ee7b7', icon: '📊' },
-  { id: 10, title: 'Как читать простую информацию', desc: 'Покажем, на какие базовые вещи обращать внимание при изучении темы.', gradient: 'linear-gradient(135deg, #3a1a4a 0%, #1f0d27 60%, #0a0e1a 100%)', accent: '#c084fc', icon: '📖' },
-  { id: 11, title: 'Как учиться без перегруза', desc: 'Разберём, как идти по шагам и не пытаться понять всё за один день.', gradient: 'linear-gradient(135deg, #4a3a1a 0%, #27200d 60%, #0a0e1a 100%)', accent: '#fbbf24', icon: '🧘' },
-  { id: 12, title: 'Что делать после вводных уроков', desc: 'Покажем, как продолжить обучение и какие темы стоит изучить дальше.', gradient: 'linear-gradient(135deg, #1a4a3a 0%, #0d2721 60%, #0a0e1a 100%)', accent: '#2dd4bf', icon: '🎯' },
+  // lesson-1: portrait 1091×1442 — показываем верхнюю часть
+  { id: 1,  imgPos: 'center 30%',  title: 'Что такое инвестиции простыми словами', desc: 'Объясним, что это такое и почему перед первыми шагами важно понять базу.', gradient: 'linear-gradient(135deg, #1a3a6e 0%, #0d2137 60%, #0a0e1a 100%)', accent: '#3b82f6', icon: '📘' },
+  // lesson-2..7: landscape ~3:2 1537×1023 — чуть выше центра
+  { id: 2,  imgPos: 'center 25%',  title: 'С чего начать новичку', desc: 'Разберём, что изучить сначала, чтобы не действовать наугад.', gradient: 'linear-gradient(135deg, #1e4d3a 0%, #0d2b1f 60%, #0a0e1a 100%)', accent: '#34d399', icon: '🚀' },
+  { id: 3,  imgPos: 'center 25%',  title: 'Почему не стоит спешить', desc: 'Покажем, почему быстрые решения часто приводят к ошибкам.', gradient: 'linear-gradient(135deg, #4a2f1a 0%, #2a1a0d 60%, #0a0e1a 100%)', accent: '#f59e0b', icon: '⏳' },
+  { id: 4,  imgPos: 'center 25%',  title: 'Какие риски важно знать', desc: 'Объясним простыми словами, почему вложения всегда связаны с рисками.', gradient: 'linear-gradient(135deg, #4a1a2f 0%, #2a0d1a 60%, #0a0e1a 100%)', accent: '#f87171', icon: '⚠️' },
+  { id: 5,  imgPos: 'center 25%',  title: 'Как не запутаться в терминах', desc: 'Разберём самые частые слова и понятия простым человеческим языком.', gradient: 'linear-gradient(135deg, #2d1a4a 0%, #1a0d2a 60%, #0a0e1a 100%)', accent: '#a78bfa', icon: '💬' },
+  { id: 6,  imgPos: 'center 25%',  title: 'Ошибки начинающих', desc: 'Покажем, какие ошибки чаще всего делают новички и как их заранее замечать.', gradient: 'linear-gradient(135deg, #1a3a3a 0%, #0d2121 60%, #0a0e1a 100%)', accent: '#4ecdc4', icon: '🔍' },
+  { id: 7,  imgPos: 'center 25%',  title: 'Как выбирать, чему доверять', desc: 'Объясним, как осторожно относиться к громким обещаниям и красивым словам.', gradient: 'linear-gradient(135deg, #3a2a1a 0%, #1f1610 60%, #0a0e1a 100%)', accent: '#c9a84c', icon: '🔎' },
+  // lesson-8: landscape, centre crop
+  { id: 8,  imgPos: 'center 25%',  title: 'Как понять свой первый шаг', desc: 'Разберём, как подойти к обучению спокойно и без лишней спешки.', gradient: 'linear-gradient(135deg, #1a2a4a 0%, #0d1627 60%, #0a0e1a 100%)', accent: '#60a5fa', icon: '👣' },
+  // lesson-9,11: 1448×1086 (~4:3) — ближе к квадрату, центр
+  { id: 9,  imgPos: 'center 30%',  title: 'Что важно знать о рынке', desc: 'Объясним, почему рынок может меняться и почему это нужно учитывать.', gradient: 'linear-gradient(135deg, #1a4a2a 0%, #0d271a 60%, #0a0e1a 100%)', accent: '#6ee7b7', icon: '📊' },
+  { id: 10, imgPos: 'center 25%',  title: 'Как читать простую информацию', desc: 'Покажем, на какие базовые вещи обращать внимание при изучении темы.', gradient: 'linear-gradient(135deg, #3a1a4a 0%, #1f0d27 60%, #0a0e1a 100%)', accent: '#c084fc', icon: '📖' },
+  { id: 11, imgPos: 'center 30%',  title: 'Как учиться без перегруза', desc: 'Разберём, как идти по шагам и не пытаться понять всё за один день.', gradient: 'linear-gradient(135deg, #4a3a1a 0%, #27200d 60%, #0a0e1a 100%)', accent: '#fbbf24', icon: '🧘' },
+  { id: 12, imgPos: 'center 25%',  title: 'Что делать после вводных уроков', desc: 'Покажем, как продолжить обучение и какие темы стоит изучить дальше.', gradient: 'linear-gradient(135deg, #1a4a3a 0%, #0d2721 60%, #0a0e1a 100%)', accent: '#2dd4bf', icon: '🎯' },
 ]
 
 const staggerDelays = ['', 'fade-up-d1', 'fade-up-d2', 'fade-up-d3', 'fade-up-d4', 'fade-up-d5']
@@ -39,18 +43,19 @@ function LessonCard({ lesson, onCTA, animDelay }) {
         transition: 'transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1), border-color 0.35s ease',
       }}
     >
-      {/* Image / Gradient */}
-      <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
+      {/* Image / Gradient — фиксированная высота для единого вида */}
+      <div className="relative overflow-hidden" style={{ height: 192 }}>
         {!imgError ? (
           <img
-            src={`/images/lesson-${lesson.id}.jpg`}
+            src={`/images/lesson-${lesson.id}.png`}
             alt={lesson.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            style={{ objectPosition: lesson.imgPos }}
             onError={() => setImgError(true)}
           />
         ) : (
           <div
-            className="w-full h-full transition-transform duration-500 group-hover:scale-105"
+            className="absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-105"
             style={{ background: lesson.gradient }}
           >
             <div className="absolute inset-0 opacity-[0.15]"
@@ -68,9 +73,11 @@ function LessonCard({ lesson, onCTA, animDelay }) {
           </div>
         )}
 
-        {/* Overlay */}
-        <div className="absolute inset-0"
-          style={{ background: 'linear-gradient(to top, rgba(10,14,26,0.8) 0%, transparent 55%)' }} />
+        {/* Overlay — плавный: читаемость badge сверху + текст снизу */}
+        <div className="absolute inset-0" style={{
+          background:
+            'linear-gradient(to bottom, rgba(7,9,26,0.22) 0%, rgba(7,9,26,0.08) 35%, rgba(7,9,26,0.55) 70%, rgba(7,9,26,0.88) 100%)',
+        }} />
 
         {/* Badge */}
         <div className="absolute top-3 left-3">
