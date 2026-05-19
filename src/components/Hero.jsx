@@ -379,14 +379,17 @@ export default function Hero({ onCTA }) {
                           boxShadow: '0 0 0 4px rgba(26,86,219,0.25), 0 24px 56px rgba(0,0,0,0.75)',
                         }}
                       >
-                        <img
-                          src="/images/murad-nazarov.png"
-                          alt="Мурад Назаров"
-                          className="w-full h-full object-cover"
-                          style={{ objectPosition: 'center 15%' }}
-                          fetchpriority="high"
-                          decoding="async"
-                        />
+                        <picture className="w-full h-full block">
+                          <source type="image/avif" srcSet="/images/murad-nazarov.avif" />
+                          <img
+                            src="/images/murad-nazarov.png"
+                            alt="Мурад Назаров"
+                            className="w-full h-full object-cover"
+                            style={{ objectPosition: 'center 15%' }}
+                            fetchpriority="high"
+                            decoding="async"
+                          />
+                        </picture>
                       </div>
                       {/* Online dot */}
                       <div

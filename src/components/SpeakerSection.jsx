@@ -27,13 +27,16 @@ export default function SpeakerSection() {
                     <div className="relative">
                       <div className="w-36 h-36 rounded-full overflow-hidden"
                         style={{ border: '3px solid rgba(201,168,76,0.55)', boxShadow: '0 0 0 6px rgba(201,168,76,0.1), 0 16px 48px rgba(0,0,0,0.6)', background: 'linear-gradient(135deg, #1a3060, #0d1f40)' }}>
-                        <img
-                          src="/images/murad-nazarov.png"
-                          alt="Мурад Назаров"
-                          className="w-full h-full object-cover object-top"
-                          loading="lazy"
-                          decoding="async"
-                        />
+                        <picture className="w-full h-full block">
+                          <source type="image/avif" srcSet="/images/murad-nazarov.avif" />
+                          <img
+                            src="/images/murad-nazarov.png"
+                            alt="Мурад Назаров"
+                            className="w-full h-full object-cover object-top"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </picture>
                       </div>
                       {/* Status dot */}
                       <div className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-green-400"
