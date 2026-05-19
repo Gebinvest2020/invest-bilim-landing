@@ -16,13 +16,13 @@ export default function FinalCTA({ onLegal }) {
               <span className="gradient-text">объяснения основ</span>
             </h2>
             <p className="text-slate-400 leading-relaxed text-base mb-8">
-              Оставьте заявку, чтобы получить доступ к видеоурокам и получить вводную консультацию по программе от команды проекта.
+              Оставьте заявку, чтобы получить бесплатный доступ к вводным урокам и консультацию по программе от команды проекта.
             </p>
 
             {/* Bullet points */}
             <div className="flex flex-col gap-3">
               {[
-                '12 видеоуроков по шагам',
+                'Бесплатный доступ к вводным материалам',
                 'Простой язык, понятные примеры',
                 'Акцент на рисках и финансовой грамотности',
                 'Без обещаний дохода — только образование',
@@ -41,7 +41,7 @@ export default function FinalCTA({ onLegal }) {
               background: 'rgba(255,255,255,0.04)',
               border: '1px solid rgba(255,255,255,0.08)',
             }}>
-            <h3 className="text-lg font-semibold text-white mb-1">Записаться на уроки</h3>
+            <h3 className="text-lg font-semibold text-white mb-1">Получить бесплатный доступ</h3>
             <p className="text-sm text-slate-500 mb-5">Оставьте заявку — мы свяжемся с вами</p>
             <LeadForm onLegal={onLegal} />
           </div>

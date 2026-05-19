@@ -1,9 +1,9 @@
 import { ArrowRight, PlayCircle, ShieldCheck } from 'lucide-react'
 
 const stat = [
-  { emoji: '📚', label: '12 уроков',       sub: 'программа по шагам' },
-  { emoji: '💬', label: 'Простым языком',  sub: 'без сложных терминов' },
-  { emoji: '🎯', label: 'Для новичков',    sub: 'начать можно с нуля' },
+  { emoji: '📚', label: '12 уроков',         sub: 'программа по шагам' },
+  { emoji: '💬', label: 'Простым языком',    sub: 'без сложных терминов' },
+  { emoji: '🎁', label: 'Вводные уроки',     sub: 'бесплатный доступ' },
 ]
 
 /* ─── Background SVG noise (data URI) ─────────────────────────────────── */
@@ -154,7 +154,7 @@ export default function Hero({ onCTA }) {
               className="text-slate-400 mb-8 animate-fade-in-up hero-d3"
               style={{ fontSize: '1.075rem', lineHeight: 1.8, maxWidth: '480px' }}
             >
-              Видеоуроки и вводное консультирование для жителей Узбекистана — понять, что такое инвестиции, с чего начать и как не запутаться, без сложных слов и давления.
+              Бесплатные вводные видеоуроки и консультация по программе для жителей Узбекистана — чтобы понять, что такое инвестиции, с чего начать и как не запутаться без сложных слов и давления.
             </p>
 
             {/* Stat chips */}
@@ -189,7 +189,7 @@ export default function Hero({ onCTA }) {
                 className="btn-gold btn-arrow pulse-gold-glow flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold"
                 style={{ fontSize: '0.9rem' }}
               >
-                Получить доступ к урокам
+                Получить бесплатный доступ
                 <span className="arrow-icon">
                   <ArrowRight size={17} />
                 </span>
@@ -219,7 +219,7 @@ export default function Hero({ onCTA }) {
                 }
               >
                 <PlayCircle size={16} />
-                Смотреть программу
+                Посмотреть программу
               </button>
             </div>
 
@@ -233,8 +233,7 @@ export default function Hero({ onCTA }) {
             >
               <ShieldCheck size={14} className="mt-0.5 shrink-0" style={{ color: '#4ecdc4' }} />
               <p className="text-xs leading-relaxed" style={{ color: 'rgba(148,163,184,0.7)' }}>
-                Материалы носят образовательный характер. Не является
-                инвестиционной рекомендацией.
+                Участие во вводных уроках бесплатное. Материалы носят образовательный характер.
               </p>
             </div>
           </div>

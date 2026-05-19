@@ -159,8 +159,8 @@ export default function LessonsSection({ onCTA }) {
             Программа обучения
           </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight" style={{ letterSpacing: '-0.025em' }}>
-            После заявки вы получите доступ к программе из{' '}
-            <span className="gradient-text">12 видеоуроков</span>{' '}и вводное консультирование
+            После заявки вы получите{' '}
+            <span className="gradient-text">бесплатный доступ к вводным урокам</span>{' '}и консультацию по программе
           </h2>
           <p className="text-slate-400 leading-relaxed text-base">
             Уроки идут по шагам: от простого объяснения темы до понимания первых действий,
@@ -201,7 +201,7 @@ export default function LessonsSection({ onCTA }) {
           <button onClick={onCTA}
             className="btn-gold btn-arrow inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl text-sm font-bold">
             <Play size={14} style={{ fill: '#0a0e1a' }} />
-            Получить доступ ко всем урокам
+            Получить бесплатный доступ
             <span className="arrow-icon"><ArrowRight size={14} /></span>
           </button>
 

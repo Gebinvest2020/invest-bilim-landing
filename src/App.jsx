@@ -45,7 +45,7 @@ export default function App() {
       </main>
       <Footer onCTA={openLeadForm} onLegal={openLegal} />
 
-      <Modal isOpen={modalOpen} onClose={closeLeadForm} title="Оставьте заявку, чтобы получить доступ к урокам и вводную консультацию по программе">
+      <Modal isOpen={modalOpen} onClose={closeLeadForm} title="Оставьте заявку, чтобы получить бесплатный доступ к вводным урокам и узнать детали программы">
         <LeadForm onLegal={openLegal} />
       </Modal>
 
