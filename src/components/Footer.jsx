@@ -1,4 +1,4 @@
-import { TrendingUp, Mail, Phone, MapPin } from 'lucide-react'
+import { TrendingUp, Mail, MapPin } from 'lucide-react'
 
 export default function Footer({ onCTA, onLegal }) {
   const legalLinks = [
@@ -99,10 +99,6 @@ export default function Footer({ onCTA, onLegal }) {
               <div className="flex items-center gap-2.5">
                 <Mail size={13} className="shrink-0 text-slate-600" />
                 <span className="text-sm text-slate-500">info@investbilim.uz</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Phone size={13} className="shrink-0 text-slate-600" />
-                <span className="text-sm text-slate-500">+998 90 000 00 00</span>
               </div>
             </div>
           </div>
