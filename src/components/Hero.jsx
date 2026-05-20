@@ -95,7 +95,7 @@ export default function Hero({ onCTA }) {
       ══════════════════════════════════════════════════════ */}
       <div className="relative z-10 w-full max-w-7xl mx-auto">
         <div
-          className="grid lg:grid-cols-2 items-stretch"
+          className="grid lg:grid-cols-[3fr_2fr] items-center"
           style={{ minHeight: 'calc(100vh - 4rem)' }}
         >
 
@@ -104,8 +104,7 @@ export default function Hero({ onCTA }) {
               на desktop переносится вправо через order-2
           ═══════════════════════════════════════════ */}
           <div
-            className="relative lg:order-2"
-            style={{ minHeight: 300 }}
+            className="relative order-2 h-52 lg:h-[640px]"
           >
             {/* ── Фотография (нижний слой) ── */}
             <picture className="absolute inset-0 w-full h-full block">
@@ -148,9 +147,9 @@ export default function Hero({ onCTA }) {
               className="hidden lg:block absolute inset-y-0 left-0 pointer-events-none"
               style={{
                 zIndex: 20,
-                width: 220,
+                width: 150,
                 background:
-                  'linear-gradient(to right, #04060f 8%, rgba(4,6,15,0.60) 44%, transparent 100%)',
+                  'linear-gradient(to right, #04060f 8%, rgba(4,6,15,0.55) 42%, transparent 100%)',
               }}
             />
             {/* Верхний: тонкий fade у верхнего края */}
