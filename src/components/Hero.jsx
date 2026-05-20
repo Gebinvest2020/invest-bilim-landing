@@ -104,7 +104,7 @@ export default function Hero({ onCTA }) {
               на desktop переносится вправо через order-2
           ═══════════════════════════════════════════ */}
           <div
-            className="relative lg:order-2 animate-card-reveal"
+            className="relative lg:order-2"
             style={{ minHeight: 300 }}
           >
             {/* ── Фотография (нижний слой) ── */}
