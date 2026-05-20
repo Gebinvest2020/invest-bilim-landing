@@ -16,28 +16,6 @@
     <meta property="og:site_name" content="Invest Bilim" />
 
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
-
-    <!-- Google Analytics 4 — loads 4 s after window load, never blocks first screen -->
-    <script>
-      window.addEventListener('load', function() {
-        setTimeout(function() {
-          if (window.__ga4Loaded) return;
-          window.__ga4Loaded = true;
-
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          window.gtag = gtag;
-
-          var s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DXTTCNEN4Y';
-          document.head.appendChild(s);
-
-          gtag('js', new Date());
-          gtag('config', 'G-DXTTCNEN4Y');
-        }, 4000);
-      });
-    </script>
   </head>
   <body>
     <div id="root"></div>
