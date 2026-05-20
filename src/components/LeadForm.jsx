@@ -2,9 +2,8 @@ import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
 
 const SCRIPT_URL =
-  'https://script.google.com/macros/s/AKfycbwzh2NN5JaQawAXgbSzB8lwww5UdjJ17xQc7U9gXUnMSIwk1RU5bZEd4YJ697vb8yQXTw/exec'
+  'https://script.google.com/macros/s/AKfycbwzh2NN5JaQawAXgbSzB8lwww5UdjJ17xQc7U9gXUnMSIwk1RU5bZEd4YJ69Zvb8yQXTw/exec'
 
-// Set to true to auto-check the consent checkbox
 const AUTO_CHECK_CONSENT = true
 
 function formatPhone(value) {
@@ -17,9 +16,15 @@ function formatPhone(value) {
   return result
 }
 
+// Получаем IP с таймаутом 3 сек, при любой ошибке возвращаем 'unknown'
 async function getIP() {
   try {
-    const res = await fetch('https://api.ipify.org?format=json')
+    const controller = new AbortController()
+    const timer = setTimeout(() => controller.abort(), 3000)
+    const res = await fetch('https://api.ipify.org?format=json', {
+      signal: controller.signal,
+    })
+    clearTimeout(timer)
     const data = await res.json()
     return data.ip || 'unknown'
   } catch {
@@ -58,30 +63,37 @@ export default function LeadForm({ onLegal }) {
 
     setLoading(true)
 
-    // 1. Получаем IP (если не удалось — 'unknown')
+    // 1. Получаем IP (макс. 3 сек, при неудаче — 'unknown')
     const ip = await getIP()
 
-    // 2. Отправляем заявку в Google Apps Script
-    // mode: 'no-cors' — надёжный способ отправки в GAS без проблем с CORS.
-    // Ответ будет непрозрачным, поэтому ориентируемся на catch для ошибок.
+    // 2. Формируем URLSearchParams — единственный формат, который
+    //    корректно принимает Google Apps Script через mode: 'no-cors'
+    const body = new URLSearchParams({
+      name:  form.name.trim(),
+      phone: form.phone,
+      ip,
+    })
+
+    // 3. Отправляем. С mode: 'no-cors' ответ будет opaque —
+    //    читать его нельзя, но данные доходят до GAS.
+    //    Catch срабатывает только при полном обрыве сети.
     try {
       await fetch(SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors',
-        body: JSON.stringify({
-          name: form.name.trim(),
-          phone: form.phone,
-          ip,
-        }),
+        mode:   'no-cors',
+        body,
       })
-      // Редирект на страницу благодарности (Google Ads конверсия)
-      window.location.href = '/thank-you.html'
     } catch {
+      // Сеть недоступна — показываем ошибку, не редиректим
       setLoading(false)
       setErrors({
         submit: 'Не удалось отправить заявку. Проверьте подключение и попробуйте ещё раз.',
       })
+      return
     }
+
+    // 4. Редирект на страницу благодарности (Google Ads конверсия)
+    window.location.href = '/thank-you.html'
   }
 
   return (
