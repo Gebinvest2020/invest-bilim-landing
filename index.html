@@ -1,15 +1,6 @@
 <!doctype html>
 <html lang="ru">
   <head>
-    <!-- Google tag (gtag.js) — GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXTTCNEN4Y"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-DXTTCNEN4Y');
-    </script>
-
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,10 +15,14 @@
     <meta property="og:locale" content="ru_RU" />
     <meta property="og:site_name" content="Invest Bilim" />
 
-    <!-- Preload hero avatar (AVIF for modern browsers, PNG fallback via <picture>) -->
+    <!-- DNS prefetch для GA4 — браузер разрешает домен заранее, без блокировки -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+    <!-- Preload hero avatar (AVIF для современных браузеров, PNG fallback через <picture>) -->
     <link rel="preload" as="image" href="/images/murad-nazarov.avif" type="image/avif" />
 
-    <!-- Non-blocking Google Fonts (avoids render-blocking) -->
+    <!-- Non-blocking Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style"
@@ -38,6 +33,15 @@
       <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
         rel="stylesheet" />
     </noscript>
+
+    <!-- Google tag (gtag.js) — GA4 -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DXTTCNEN4Y');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXTTCNEN4Y"></script>
   </head>
   <body>
     <div id="root"></div>
