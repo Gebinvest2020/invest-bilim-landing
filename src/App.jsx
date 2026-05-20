@@ -37,20 +37,20 @@ export default function App() {
         {/* 2. Большой блок эксперта */}
         <SpeakerHeroSection onCTA={openLeadForm} />
 
-        {/* 3. Что вы разберёте на обучении (6 карточек) */}
+        {/* 3. Отзывы — социальное доказательство сразу после эксперта */}
+        <TestimonialsSection />
+
+        {/* 4. Что вы разберёте на обучении (6 карточек) */}
         <CurriculumSection onCTA={openLeadForm} />
 
-        {/* 4. Детальная программа — 12 уроков */}
+        {/* 5. Детальная программа — 12 уроков */}
         <LessonsSection onCTA={openLeadForm} />
 
-        {/* 5. Как проходит обучение */}
+        {/* 6. Как проходит обучение */}
         <HowItWorksSection onCTA={openLeadForm} />
 
-        {/* 6. Почему формат подходит новичкам */}
+        {/* 7. Почему формат подходит новичкам */}
         <WhyLearnSection onCTA={openLeadForm} />
-
-        {/* 7. Отзывы */}
-        <TestimonialsSection />
 
         {/* 8. FAQ */}
         <FAQSection />
