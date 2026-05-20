@@ -5,15 +5,30 @@ const SCRIPT_URL =
   'https://script.google.com/macros/s/AKfycbwzh2NN5JaQawAXgbSzB8lwww5UdjJ17xQc7U9gXUnMSIwk1RU5bZEd4YJ69Zvb8yQXTw/exec'
 
 const AUTO_CHECK_CONSENT = true
+const PHONE_PREFIX = '+998'
 
+// Форматирует ввод → '+998 90 123 45 67', максимум 9 цифр после кода страны
 function formatPhone(value) {
-  const digits = value.replace(/\D/g, '').replace(/^998/, '')
-  let result = '+998'
-  if (digits.length > 0) result += ' ' + digits.slice(0, 2)
-  if (digits.length > 2) result += ' ' + digits.slice(2, 5)
-  if (digits.length > 5) result += ' ' + digits.slice(5, 7)
-  if (digits.length > 7) result += ' ' + digits.slice(7, 9)
+  let local = value.replace(/\D/g, '')
+  if (local.startsWith('998')) local = local.slice(3)
+  local = local.slice(0, 9) // не более 9 цифр оператор+номер
+
+  let result = PHONE_PREFIX
+  if (local.length > 0) result += ' ' + local.slice(0, 2)
+  if (local.length > 2) result += ' ' + local.slice(2, 5)
+  if (local.length > 5) result += ' ' + local.slice(5, 7)
+  if (local.length > 7) result += ' ' + local.slice(7, 9)
   return result
+}
+
+// Возвращает чистый номер для Google Таблицы: +998901234567
+function cleanPhone(formatted) {
+  return '+' + formatted.replace(/\D/g, '')
+}
+
+// Количество локальных цифр (без кода страны)
+function localDigits(formatted) {
+  return formatted.replace(/\D/g, '').replace(/^998/, '').length
 }
 
 // Получаем IP с таймаутом 3 сек, при любой ошибке возвращаем 'unknown'
@@ -21,9 +36,7 @@ async function getIP() {
   try {
     const controller = new AbortController()
     const timer = setTimeout(() => controller.abort(), 3000)
-    const res = await fetch('https://api.ipify.org?format=json', {
-      signal: controller.signal,
-    })
+    const res = await fetch('https://api.ipify.org?format=json', { signal: controller.signal })
     clearTimeout(timer)
     const data = await res.json()
     return data.ip || 'unknown'
@@ -35,7 +48,7 @@ async function getIP() {
 export default function LeadForm({ onLegal }) {
   const [form, setForm] = useState({
     name: '',
-    phone: '+998 ',
+    phone: PHONE_PREFIX,
     consent: AUTO_CHECK_CONSENT,
   })
   const [errors, setErrors] = useState({})
@@ -44,8 +57,7 @@ export default function LeadForm({ onLegal }) {
   const validate = () => {
     const e = {}
     if (!form.name.trim() || form.name.trim().length < 2) e.name = 'Введите ваше имя'
-    const digits = form.phone.replace(/\D/g, '')
-    if (digits.length < 12) e.phone = 'Введите корректный номер: +998 XX XXX XX XX'
+    if (localDigits(form.phone) < 9) e.phone = 'Введите полный номер телефона'
     if (!form.consent) e.consent = 'Необходимо согласие на обработку данных'
     return e
   }
@@ -56,6 +68,26 @@ export default function LeadForm({ onLegal }) {
     if (errors.phone) setErrors((er) => ({ ...er, phone: undefined }))
   }
 
+  // Не даём удалить префикс +998
+  const handlePhoneKeyDown = (e) => {
+    const { selectionStart, selectionEnd } = e.currentTarget
+    if (
+      (e.key === 'Backspace' || e.key === 'Delete') &&
+      selectionStart <= PHONE_PREFIX.length &&
+      selectionEnd <= PHONE_PREFIX.length
+    ) {
+      e.preventDefault()
+    }
+  }
+
+  // На мобильном — при фокусе ставим курсор в конец (не в начало)
+  const handlePhoneFocus = (e) => {
+    const len = e.target.value.length
+    setTimeout(() => {
+      try { e.target.setSelectionRange(len, len) } catch { /* ignore */ }
+    }, 0)
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     const errs = validate()
@@ -63,20 +95,17 @@ export default function LeadForm({ onLegal }) {
 
     setLoading(true)
 
-    // 1. Получаем IP (макс. 3 сек, при неудаче — 'unknown')
+    // 1. IP (макс. 3 сек, при неудаче — 'unknown')
     const ip = await getIP()
 
-    // 2. Формируем URLSearchParams — единственный формат, который
-    //    корректно принимает Google Apps Script через mode: 'no-cors'
+    // 2. URLSearchParams + no-cors — стандартный способ отправки в GAS
+    //    Телефон уходит чистым: +998901234567
     const body = new URLSearchParams({
       name:  form.name.trim(),
-      phone: form.phone,
+      phone: cleanPhone(form.phone),
       ip,
     })
 
-    // 3. Отправляем. С mode: 'no-cors' ответ будет opaque —
-    //    читать его нельзя, но данные доходят до GAS.
-    //    Catch срабатывает только при полном обрыве сети.
     try {
       await fetch(SCRIPT_URL, {
         method: 'POST',
@@ -84,7 +113,6 @@ export default function LeadForm({ onLegal }) {
         body,
       })
     } catch {
-      // Сеть недоступна — показываем ошибку, не редиректим
       setLoading(false)
       setErrors({
         submit: 'Не удалось отправить заявку. Проверьте подключение и попробуйте ещё раз.',
@@ -92,7 +120,7 @@ export default function LeadForm({ onLegal }) {
       return
     }
 
-    // 4. Редирект на страницу благодарности (Google Ads конверсия)
+    // 3. Редирект на страницу благодарности (Google Ads конверсия)
     window.location.href = '/thank-you.html'
   }
 
@@ -122,12 +150,19 @@ export default function LeadForm({ onLegal }) {
 
       {/* Phone */}
       <div>
-        <label className="block text-xs font-medium text-slate-400 mb-1.5">Номер телефона *</label>
+        <label className="block text-xs font-medium text-slate-400 mb-1.5">
+          Номер телефона *
+          <span className="ml-1 font-normal" style={{ color: 'rgba(100,116,139,0.7)' }}>
+            (+998 XX XXX XX XX)
+          </span>
+        </label>
         <input
           type="tel"
+          inputMode="numeric"
           value={form.phone}
           onChange={handlePhone}
-          placeholder="+998 90 123 45 67"
+          onKeyDown={handlePhoneKeyDown}
+          onFocus={handlePhoneFocus}
           className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-slate-600 outline-none transition-all"
           style={{
             background: 'rgba(255,255,255,0.05)',
