@@ -17,27 +17,26 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
-    <!-- Google Analytics 4 — deferred after window load -->
+    <!-- Google Analytics 4 — loads 4 s after window load, never blocks first screen -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-DXTTCNEN4Y');
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          if (window.__ga4Loaded) return;
+          window.__ga4Loaded = true;
 
-      function _loadGA4() {
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DXTTCNEN4Y';
-        document.head.appendChild(s);
-      }
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
 
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(_loadGA4, { timeout: 2000 });
-      } else {
-        window.addEventListener('load', function() {
-          setTimeout(_loadGA4, 200);
-        });
-      }
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DXTTCNEN4Y';
+          document.head.appendChild(s);
+
+          gtag('js', new Date());
+          gtag('config', 'G-DXTTCNEN4Y');
+        }, 4000);
+      });
     </script>
   </head>
   <body>
