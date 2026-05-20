@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import AudienceSection from './components/AudienceSection'
-import BenefitsSection from './components/BenefitsSection'
+import SpeakerHeroSection from './components/SpeakerHeroSection'
+import CurriculumSection from './components/CurriculumSection'
 import LessonsSection from './components/LessonsSection'
-import WhyLearnSection from './components/WhyLearnSection'
-import SpeakerSection from './components/SpeakerSection'
 import HowItWorksSection from './components/HowItWorksSection'
+import WhyLearnSection from './components/WhyLearnSection'
 import TestimonialsSection from './components/TestimonialsSection'
 import FAQSection from './components/FAQSection'
 import FinalCTA from './components/FinalCTA'
@@ -32,20 +31,40 @@ export default function App() {
     <div className="min-h-screen" style={{ background: '#0a0e1a' }}>
       <Header onCTA={openLeadForm} />
       <main>
+        {/* 1. Hero */}
         <Hero onCTA={openLeadForm} />
+
+        {/* 2. Большой блок эксперта */}
+        <SpeakerHeroSection onCTA={openLeadForm} />
+
+        {/* 3. Что вы разберёте на обучении (6 карточек) */}
+        <CurriculumSection onCTA={openLeadForm} />
+
+        {/* 4. Детальная программа — 12 уроков */}
         <LessonsSection onCTA={openLeadForm} />
-        <AudienceSection />
-        <BenefitsSection />
-        <WhyLearnSection />
-        <SpeakerSection />
+
+        {/* 5. Как проходит обучение */}
         <HowItWorksSection onCTA={openLeadForm} />
+
+        {/* 6. Почему формат подходит новичкам */}
+        <WhyLearnSection onCTA={openLeadForm} />
+
+        {/* 7. Отзывы */}
         <TestimonialsSection />
+
+        {/* 8. FAQ */}
         <FAQSection />
+
+        {/* 9. Финальный CTA + форма */}
         <FinalCTA onLegal={openLegal} />
       </main>
       <Footer onCTA={openLeadForm} onLegal={openLegal} />
 
-      <Modal isOpen={modalOpen} onClose={closeLeadForm} title="Оставьте заявку, чтобы получить бесплатный доступ к вводным урокам и узнать детали программы">
+      <Modal
+        isOpen={modalOpen}
+        onClose={closeLeadForm}
+        title="Оставьте заявку, чтобы получить бесплатный доступ к вводным урокам и узнать детали программы"
+      >
         <LeadForm onLegal={openLegal} />
       </Modal>
 

@@ -6,8 +6,9 @@ const testimonials = [
   {
     text: 'Мне понравилось, что всё объясняется простыми словами. Раньше тема казалась сложной, а теперь стало понятнее, с чего начать обучение.',
     name: 'Азиз',
-    city: 'Ташкент',
+    city: 'Бишкек',
     initials: 'А',
+    image: '/testimonials/aziz.png',
     color: '#3b82f6',
     bg: 'rgba(59,130,246,0.12)',
     border: 'rgba(59,130,246,0.25)',
@@ -15,8 +16,9 @@ const testimonials = [
   {
     text: 'Хорошо, что в уроках говорят не только о возможностях, но и о важных моментах для новичка. Это помогает смотреть на тему спокойнее.',
     name: 'Дилноза',
-    city: 'Самарканд',
+    city: 'Ош',
     initials: 'Д',
+    image: '/testimonials/dilnoza.png',
     color: '#c9a84c',
     bg: 'rgba(201,168,76,0.12)',
     border: 'rgba(201,168,76,0.25)',
@@ -24,8 +26,9 @@ const testimonials = [
   {
     text: 'Я не разбирался в этой теме вообще. После первых уроков стало понятнее, какие вопросы нужно изучить перед тем как что-то решать.',
     name: 'Рустам',
-    city: 'Бухара',
+    city: 'Джалал-Абад',
     initials: 'Р',
+    image: '/testimonials/rustam.png',
     color: '#4ecdc4',
     bg: 'rgba(78,205,196,0.12)',
     border: 'rgba(78,205,196,0.25)',
@@ -33,8 +36,9 @@ const testimonials = [
   {
     text: 'Материалы поданы без сложных слов. Удобно, что можно смотреть постепенно и возвращаться к урокам в любое время.',
     name: 'Мадина',
-    city: 'Наманган',
+    city: 'Каракол',
     initials: 'М',
+    image: '/testimonials/madina.png',
     color: '#a78bfa',
     bg: 'rgba(167,139,250,0.12)',
     border: 'rgba(167,139,250,0.25)',
@@ -42,8 +46,9 @@ const testimonials = [
   {
     text: 'Понравилось, что никто не давит и не обещает быстрых результатов. Просто объясняют базу и важные моменты.',
     name: 'Фарход',
-    city: 'Андижан',
+    city: 'Нарын',
     initials: 'Ф',
+    image: '/testimonials/farhod.png',
     color: '#34d399',
     bg: 'rgba(52,211,153,0.12)',
     border: 'rgba(52,211,153,0.25)',
@@ -51,8 +56,9 @@ const testimonials = [
   {
     text: 'Я давно хотела понять, что такое вложения денег, но боялась сложных терминов. Здесь объяснение намного проще, чем я ожидала.',
     name: 'Шахноза',
-    city: 'Ташкент',
+    city: 'Бишкек',
     initials: 'Ш',
+    image: '/testimonials/shahnoza.png',
     color: '#f87171',
     bg: 'rgba(248,113,113,0.12)',
     border: 'rgba(248,113,113,0.25)',
@@ -60,8 +66,9 @@ const testimonials = [
   {
     text: 'Полезно было узнать про ошибки новичков. Теперь понимаю, что сначала нужно разобраться в теме, а не торопиться.',
     name: 'Бекзод',
-    city: 'Фергана',
+    city: 'Токмок',
     initials: 'Б',
+    image: '/testimonials/bekzod.png',
     color: '#fbbf24',
     bg: 'rgba(251,191,36,0.12)',
     border: 'rgba(251,191,36,0.25)',
@@ -69,8 +76,9 @@ const testimonials = [
   {
     text: 'Уроки помогают разобраться в теме постепенно. Нет ощущения, что тебя грузят сложной финансовой информацией.',
     name: 'Наргиза',
-    city: 'Самарканд',
+    city: 'Ош',
     initials: 'Н',
+    image: '/testimonials/nargiza.png',
     color: '#60a5fa',
     bg: 'rgba(96,165,250,0.12)',
     border: 'rgba(96,165,250,0.25)',
@@ -78,8 +86,9 @@ const testimonials = [
   {
     text: 'Мне понравился спокойный подход. Всё объясняют понятно, без громких обещаний и давления.',
     name: 'Тимур',
-    city: 'Ташкент',
+    city: 'Бишкек',
     initials: 'Т',
+    image: '/testimonials/timur.png',
     color: '#2dd4bf',
     bg: 'rgba(45,212,191,0.12)',
     border: 'rgba(45,212,191,0.25)',
@@ -87,8 +96,9 @@ const testimonials = [
   {
     text: 'После уроков стало проще понимать, какие темы нужно изучать дальше. Есть ощущение порядка в голове.',
     name: 'Лола',
-    city: 'Карши',
+    city: 'Кара-Балта',
     initials: 'Л',
+    image: '/testimonials/lola.png',
     color: '#f472b6',
     bg: 'rgba(244,114,182,0.12)',
     border: 'rgba(244,114,182,0.25)',
@@ -96,8 +106,9 @@ const testimonials = [
   {
     text: 'Хороший формат для тех, кто начинает с нуля. Особенно понравились объяснения про важные моменты — всё чётко и без лишних слов.',
     name: 'Камол',
-    city: 'Нукус',
+    city: 'Баткен',
     initials: 'К',
+    image: '/testimonials/kamol.png',
     color: '#86efac',
     bg: 'rgba(134,239,172,0.12)',
     border: 'rgba(134,239,172,0.25)',
@@ -105,8 +116,9 @@ const testimonials = [
   {
     text: 'Материалы помогают не бояться этой темы и смотреть на неё более спокойно. Хорошо, что всё на понятном языке.',
     name: 'Севара',
-    city: 'Ургенч',
+    city: 'Талас',
     initials: 'С',
+    image: '/testimonials/sevara.png',
     color: '#c4b5fd',
     bg: 'rgba(196,181,253,0.12)',
     border: 'rgba(196,181,253,0.25)',
@@ -114,8 +126,9 @@ const testimonials = [
   {
     text: 'Понравилось, что сначала объясняют самые простые вещи. Не нужно сразу разбираться в сложных словах — можно спокойно идти по шагам.',
     name: 'Жасур',
-    city: 'Ташкент',
+    city: 'Бишкек',
     initials: 'Ж',
+    image: '/testimonials/jasur.png',
     color: '#38bdf8',
     bg: 'rgba(56,189,248,0.12)',
     border: 'rgba(56,189,248,0.25)',
@@ -123,8 +136,9 @@ const testimonials = [
   {
     text: 'После заявки мне объяснили, как проходит обучение и что входит в программу. Так стало понятнее, с чего начать.',
     name: 'Гулноза',
-    city: 'Фергана',
+    city: 'Джалал-Абад',
     initials: 'Г',
+    image: '/testimonials/gulnoza.png',
     color: '#fb923c',
     bg: 'rgba(251,146,60,0.12)',
     border: 'rgba(251,146,60,0.25)',
@@ -132,8 +146,9 @@ const testimonials = [
   {
     text: 'Уроки помогли понять, какие темы стоит изучить в первую очередь. Хорошо, что всё подано без давления и лишней спешки.',
     name: 'Акмал',
-    city: 'Самарканд',
+    city: 'Ош',
     initials: 'А',
+    image: '/testimonials/akmal.png',
     color: '#4ade80',
     bg: 'rgba(74,222,128,0.12)',
     border: 'rgba(74,222,128,0.25)',
@@ -141,8 +156,9 @@ const testimonials = [
   {
     text: 'Мне было важно, чтобы объясняли простым языком. Формат с видеоуроками и консультацией по обучению оказался удобным.',
     name: 'Нигора',
-    city: 'Бухара',
+    city: 'Каракол',
     initials: 'Н',
+    image: '/testimonials/nigora.png',
     color: '#e879f9',
     bg: 'rgba(232,121,249,0.12)',
     border: 'rgba(232,121,249,0.25)',
@@ -150,8 +166,9 @@ const testimonials = [
   {
     text: 'Раньше тема инвестиций казалась слишком сложной. После первых материалов стало понятнее, какие вопросы нужно изучать дальше.',
     name: 'Сардор',
-    city: 'Наманган',
+    city: 'Бишкек',
     initials: 'С',
+    image: '/testimonials/sardor.png',
     color: '#a3e635',
     bg: 'rgba(163,230,53,0.12)',
     border: 'rgba(163,230,53,0.25)',
@@ -159,8 +176,9 @@ const testimonials = [
   {
     text: 'Мне понравилось, что обучение построено спокойно и понятно. Можно смотреть уроки в своём темпе, а если что-то непонятно — уточнить организационные моменты по программе.',
     name: 'Мадина',
-    city: 'Андижан',
+    city: 'Нарын',
     initials: 'М',
+    image: '/testimonials/madina1.png',
     color: '#fb7185',
     bg: 'rgba(251,113,133,0.12)',
     border: 'rgba(251,113,133,0.25)',
@@ -169,6 +187,8 @@ const testimonials = [
 
 function TestimonialCard({ t, animDelay }) {
   const [ref, visible] = useInView()
+  const [imgError, setImgError] = useState(false)
+
   return (
     <div
       ref={ref}
@@ -187,15 +207,43 @@ function TestimonialCard({ t, animDelay }) {
 
       {/* Author */}
       <div className="flex items-center gap-3 pt-1" style={{ borderTop: `1px solid ${t.border}` }}>
+
+        {/* Аватар — реальное фото, 56×56 px, круглое */}
         <div
-          className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold shrink-0"
-          style={{ background: `${t.color}20`, border: `1.5px solid ${t.color}40`, color: t.color }}
+          className="rounded-full overflow-hidden shrink-0"
+          style={{
+            width: 56,
+            height: 56,
+            border: `2px solid ${t.color}45`,
+            boxShadow: `0 0 10px ${t.color}22, 0 2px 8px rgba(0,0,0,0.45)`,
+            background: `${t.color}18`,
+          }}
         >
-          {t.initials}
+          {t.image && !imgError ? (
+            <img
+              src={t.image}
+              alt={t.name}
+              width="56"
+              height="56"
+              className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+              onError={() => setImgError(true)}
+            />
+          ) : (
+            /* Fallback — инициал, если фото нет или не загрузилось */
+            <div
+              className="w-full h-full flex items-center justify-center text-sm font-bold"
+              style={{ color: t.color }}
+            >
+              {t.initials}
+            </div>
+          )}
         </div>
+
         <div>
           <div className="text-sm font-semibold text-white">{t.name}</div>
-          <div className="text-xs" style={{ color: 'rgba(148,163,184,0.7)' }}>{t.city}, Узбекистан</div>
+          <div className="text-xs" style={{ color: 'rgba(148,163,184,0.7)' }}>{t.city}, Кыргызстан</div>
         </div>
         <div className="ml-auto flex gap-0.5">
           {[...Array(5)].map((_, i) => (
@@ -232,7 +280,7 @@ export default function TestimonialsSection() {
           </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
             Что говорят люди из{' '}
-            <span className="gradient-text">Узбекистана</span>
+            <span className="gradient-text">Кыргызстана</span>
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto leading-relaxed">
             Участники делятся впечатлениями об обучении — как изменилось их понимание темы и что показалось полезным.

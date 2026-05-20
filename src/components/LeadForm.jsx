@@ -5,30 +5,29 @@ const SCRIPT_URL =
   'https://script.google.com/macros/s/AKfycbwzh2NN5JaQawAXgbSzB8lwww5UdjJ17xQc7U9gXUnMSIwk1RU5bZEd4YJ69Zvb8yQXTw/exec'
 
 const AUTO_CHECK_CONSENT = true
-const PHONE_PREFIX = '+998'
+const PHONE_PREFIX = '+996'
 
-// Форматирует ввод → '+998 90 123 45 67', максимум 9 цифр после кода страны
+// Форматирует ввод → '+996 555 123 456', максимум 9 цифр после кода страны
 function formatPhone(value) {
   let local = value.replace(/\D/g, '')
-  if (local.startsWith('998')) local = local.slice(3)
+  if (local.startsWith('996')) local = local.slice(3)
   local = local.slice(0, 9) // не более 9 цифр оператор+номер
 
   let result = PHONE_PREFIX
-  if (local.length > 0) result += ' ' + local.slice(0, 2)
-  if (local.length > 2) result += ' ' + local.slice(2, 5)
-  if (local.length > 5) result += ' ' + local.slice(5, 7)
-  if (local.length > 7) result += ' ' + local.slice(7, 9)
+  if (local.length > 0) result += ' ' + local.slice(0, 3)
+  if (local.length > 3) result += ' ' + local.slice(3, 6)
+  if (local.length > 6) result += ' ' + local.slice(6, 9)
   return result
 }
 
-// Возвращает чистый номер для Google Таблицы: +998901234567
+// Возвращает чистый номер для Google Таблицы: +996555123456
 function cleanPhone(formatted) {
   return '+' + formatted.replace(/\D/g, '')
 }
 
 // Количество локальных цифр (без кода страны)
 function localDigits(formatted) {
-  return formatted.replace(/\D/g, '').replace(/^998/, '').length
+  return formatted.replace(/\D/g, '').replace(/^996/, '').length
 }
 
 // Получаем IP с таймаутом 3 сек, при любой ошибке возвращаем 'unknown'
@@ -68,7 +67,7 @@ export default function LeadForm({ onLegal }) {
     if (errors.phone) setErrors((er) => ({ ...er, phone: undefined }))
   }
 
-  // Не даём удалить префикс +998
+  // Не даём удалить префикс +996
   const handlePhoneKeyDown = (e) => {
     const { selectionStart, selectionEnd } = e.currentTarget
     if (
@@ -99,7 +98,7 @@ export default function LeadForm({ onLegal }) {
     const ip = await getIP()
 
     // 2. URLSearchParams + no-cors — стандартный способ отправки в GAS
-    //    Телефон уходит чистым: +998901234567
+    //    Телефон уходит чистым: +996555123456
     const body = new URLSearchParams({
       name:  form.name.trim(),
       phone: cleanPhone(form.phone),
@@ -153,7 +152,7 @@ export default function LeadForm({ onLegal }) {
         <label className="block text-xs font-medium text-slate-400 mb-1.5">
           Номер телефона *
           <span className="ml-1 font-normal" style={{ color: 'rgba(100,116,139,0.7)' }}>
-            (+998 XX XXX XX XX)
+            (+996 XXX XXX XXX)
           </span>
         </label>
         <input

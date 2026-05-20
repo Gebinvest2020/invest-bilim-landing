@@ -39,7 +39,7 @@ export default function Footer({ onCTA, onLegal }) {
               </span>
             </div>
             <p className="text-xs text-slate-600 leading-relaxed mb-5">
-              Образовательный проект по основам инвестирования для жителей Узбекистана.
+              Образовательный проект по основам инвестирования для жителей Кыргызстана.
               Объясняем простым языком без сложных терминов.
             </p>
             <button
@@ -94,11 +94,11 @@ export default function Footer({ onCTA, onLegal }) {
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2.5">
                 <MapPin size={13} className="shrink-0 text-slate-600" />
-                <span className="text-sm text-slate-500">Узбекистан</span>
+                <span className="text-sm text-slate-500">Кыргызстан</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail size={13} className="shrink-0 text-slate-600" />
-                <span className="text-sm text-slate-500">info@investbilim.uz</span>
+                <span className="text-sm text-slate-500">info@investbilim.kg</span>
               </div>
             </div>
           </div>
@@ -119,7 +119,7 @@ export default function Footer({ onCTA, onLegal }) {
             © 2025 Invest Bilim. Все права защищены.
           </p>
           <p className="text-xs" style={{ color: 'rgba(100,116,139,0.5)' }}>
-            Узбекистан · Образовательный проект
+            Кыргызстан · Образовательный проект
           </p>
         </div>
 
