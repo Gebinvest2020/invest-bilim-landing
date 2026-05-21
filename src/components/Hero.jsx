@@ -109,9 +109,9 @@ export default function Hero({ onCTA }) {
             {/* ── Фотография (нижний слой) ── */}
             <img
               src="/speaker/optimized/hero-speaker.webp"
-              alt="Данияр Аманалиев — предприниматель и автор образовательной программы"
+              alt="Данияр Аманалиев"
               className="absolute inset-0 w-full h-full object-cover"
-              style={{ objectPosition: 'center 18%' }}
+              style={{ objectPosition: 'center 15%' }}
               fetchpriority="high"
               decoding="async"
             />
