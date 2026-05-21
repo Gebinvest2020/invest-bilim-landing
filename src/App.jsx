@@ -40,11 +40,11 @@ export default function App() {
         {/* 3. Отзывы — социальное доказательство сразу после эксперта */}
         <TestimonialsSection />
 
-        {/* 4. Что вы разберёте на обучении (6 карточек) */}
-        <CurriculumSection onCTA={openLeadForm} />
-
-        {/* 5. Детальная программа — 12 уроков */}
+        {/* 4. Детальная программа — 12 уроков */}
         <LessonsSection onCTA={openLeadForm} />
+
+        {/* 5. Что вы разберёте на обучении (6 карточек) */}
+        <CurriculumSection onCTA={openLeadForm} />
 
         {/* 6. Как проходит обучение */}
         <HowItWorksSection onCTA={openLeadForm} />
