@@ -107,17 +107,14 @@ export default function Hero({ onCTA }) {
             className="relative order-2 h-52 lg:h-[640px]"
           >
             {/* ── Фотография (нижний слой) ── */}
-            <picture className="absolute inset-0 w-full h-full block">
-              <source type="image/avif" srcSet="/images/murad-nazarov.avif" />
-              <img
-                src="/images/murad-nazarov.png"
-                alt="Мурад Назаров — автор и спикер образовательной программы"
-                className="w-full h-full object-cover"
-                style={{ objectPosition: 'center 22%' }}
-                fetchpriority="high"
-                decoding="async"
-              />
-            </picture>
+            <img
+              src="/speaker/optimized/hero-speaker.webp"
+              alt="Данияр Аманалиев — автор и спикер образовательной программы"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectPosition: 'center 18%' }}
+              fetchpriority="high"
+              decoding="async"
+            />
 
             {/* ── Оверлеи (z-10): интеграция в dark design без глушения лица ── */}
 
@@ -193,7 +190,7 @@ export default function Hero({ onCTA }) {
                   WebkitBackdropFilter: 'blur(14px)',
                 }}
               >
-                <div className="text-sm font-bold text-white leading-tight">Мурад Назаров</div>
+                <div className="text-sm font-bold text-white leading-tight">Данияр Аманалиев</div>
                 <div className="text-[11px] text-slate-400 mt-0.5">Автор и спикер программы</div>
               </div>
             </div>

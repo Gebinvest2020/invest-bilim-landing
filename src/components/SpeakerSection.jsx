@@ -29,16 +29,14 @@ export default function SpeakerSection() {
                     <div className="relative">
                       <div className="w-36 h-36 rounded-full overflow-hidden"
                         style={{ border: '3px solid rgba(201,168,76,0.55)', boxShadow: '0 0 0 6px rgba(201,168,76,0.1), 0 16px 48px rgba(0,0,0,0.6)', background: 'linear-gradient(135deg, #1a3060, #0d1f40)' }}>
-                        <picture className="w-full h-full block">
-                          <source type="image/avif" srcSet="/images/murad-nazarov.avif" />
-                          <img
-                            src="/images/murad-nazarov.png"
-                            alt="Мурад Назаров"
-                            className="w-full h-full object-cover object-top"
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        </picture>
+                        <img
+                          src="/speaker/optimized/speaker-avatar.webp"
+                          alt="Данияр Аманалиев"
+                          className="w-full h-full object-cover"
+                          style={{ objectPosition: 'center 15%' }}
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </div>
                       {/* Status dot */}
                       <div className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-green-400"
@@ -46,7 +44,7 @@ export default function SpeakerSection() {
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-bold text-white">Мурад Назаров</h3>
+                      <h3 className="text-xl font-bold text-white">Данияр Аманалиев</h3>
                       <p className="text-sm text-slate-400 mt-1">Спикер образовательной программы</p>
                     </div>
 
@@ -63,7 +61,7 @@ export default function SpeakerSection() {
                     {/* Description */}
                     <div className="w-full px-3 py-2.5 rounded-xl text-center text-xs text-slate-400 leading-relaxed"
                       style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                      Мурад объясняет базовые темы простым языком: с чего начать, как не запутаться и что важно понять перед первыми шагами.
+                      Данияр объясняет базовые темы простым языком: с чего начать, как не запутаться и что важно понять перед первыми шагами.
                     </div>
                   </div>
 
@@ -94,11 +92,11 @@ export default function SpeakerSection() {
               Спикер программы
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-5" style={{ letterSpacing: '-0.02em' }}>
-              Мурад Назаров —{' '}
+              Данияр Аманалиев —{' '}
               <span className="gradient-text">автор и спикер видеоуроков</span>
             </h2>
             <p className="text-slate-400 leading-relaxed mb-8 text-base">
-              Мурад Назаров — автор и спикер видеоуроков. В своих материалах он объясняет основы инвестирования простым языком, без сложных терминов и давления.
+              Данияр Аманалиев — автор и спикер видеоуроков. В своих материалах он объясняет основы инвестирования простым языком, без сложных терминов и давления.
             </p>
 
             <div className="flex flex-col gap-3 mb-8">

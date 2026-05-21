@@ -46,18 +46,15 @@ function LessonCard({ lesson, onCTA, animDelay }) {
       {/* Image / Gradient — фиксированная высота для единого вида */}
       <div className="relative overflow-hidden" style={{ height: 192 }}>
         {!imgError ? (
-          <picture className="absolute inset-0 w-full h-full block">
-            <source type="image/avif" srcSet={`/images/lesson-${lesson.id}.avif`} />
-            <img
-              src={`/images/lesson-${lesson.id}.png`}
-              alt={lesson.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              style={{ objectPosition: lesson.imgPos }}
-              loading="lazy"
-              decoding="async"
-              onError={() => setImgError(true)}
-            />
-          </picture>
+          <img
+            src={`/lessons/optimized/lesson-${lesson.id}.webp`}
+            alt={`Урок ${lesson.id} программы Invest Bilim`}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            style={{ objectPosition: lesson.imgPos }}
+            loading="lazy"
+            decoding="async"
+            onError={() => setImgError(true)}
+          />
         ) : (
           <div
             className="absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-105"

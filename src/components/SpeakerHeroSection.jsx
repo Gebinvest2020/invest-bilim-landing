@@ -42,17 +42,14 @@ export default function SpeakerHeroSection({ onCTA }) {
                       boxShadow: '0 0 0 4px rgba(201,168,76,0.08), 0 8px 24px rgba(0,0,0,0.5)',
                     }}
                   >
-                    <picture className="w-full h-full block">
-                      <source type="image/avif" srcSet="/images/murad-nazarov.avif" />
-                      <img
-                        src="/images/murad-nazarov.png"
-                        alt="Мурад Назаров"
-                        className="w-full h-full object-cover"
-                        style={{ objectPosition: 'center 10%' }}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </picture>
+                    <img
+                      src="/speaker/optimized/speaker-avatar.webp"
+                      alt="Данияр Аманалиев"
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: 'center 15%' }}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                   {/* Online-dot */}
                   <div
@@ -61,7 +58,7 @@ export default function SpeakerHeroSection({ onCTA }) {
                   />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white leading-tight">Мурад Назаров</h3>
+                  <h3 className="text-lg font-bold text-white leading-tight">Данияр Аманалиев</h3>
                   <p className="text-xs text-slate-500 mt-0.5">
                     Автор и спикер образовательной программы
                   </p>
@@ -71,8 +68,7 @@ export default function SpeakerHeroSection({ onCTA }) {
               {/* Короткое bio */}
               <p className="text-slate-400 text-sm leading-relaxed">
                 Объясняет инвестиции простым языком — без давления, сложных терминов
-                и обещаний дохода. Честный разбор: с чего начать, на что обращать внимание
-                и каких ошибок лучше избегать.
+                и обещаний дохода. Помогает новичкам понять базовые принципы и первые шаги.
               </p>
 
               {/* Бейдж */}
