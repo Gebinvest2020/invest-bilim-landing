@@ -3,7 +3,7 @@ import { useInView } from '../hooks/useInView'
 
 const traits = [
   { text: 'Понятный язык — никакого профессионального жаргона', color: '#4ecdc4' },
-  { text: 'Честный разбор темы: важные моменты, ошибки и первые шаги', color: '#93c5fd' },
+  { text: 'Разбор важных моментов, ошибок и первых шагов', color: '#93c5fd' },
   { text: 'Образовательный формат без обещаний результата', color: '#a78bfa' },
 ]
 
@@ -60,7 +60,7 @@ export default function SpeakerHeroSection({ onCTA }) {
                 <div>
                   <h3 className="text-lg font-bold text-white leading-tight">Данияр Аманалиев</h3>
                   <p className="text-xs text-slate-500 mt-0.5">
-                    Автор и спикер образовательной программы
+                    Предприниматель и автор образовательной программы
                   </p>
                 </div>
               </div>
@@ -113,7 +113,7 @@ export default function SpeakerHeroSection({ onCTA }) {
                   className="text-xs mt-3"
                   style={{ color: 'rgba(100,116,139,0.6)' }}
                 >
-                  Материалы носят образовательный характер и не являются финансовой рекомендацией.
+                  Материалы носят образовательный характер и не являются индивидуальной финансовой или инвестиционной рекомендацией.
                 </p>
               </div>
             </div>
