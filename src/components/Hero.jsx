@@ -104,7 +104,7 @@ export default function Hero({ onCTA }) {
               на desktop переносится вправо через order-2
           ═══════════════════════════════════════════ */}
           <div
-            className="relative order-2 h-52 lg:h-[640px]"
+            className="relative order-2 h-[270px] lg:h-[640px]"
           >
             {/* ── Фотография (нижний слой) ── */}
             <img
@@ -179,8 +179,8 @@ export default function Hero({ onCTA }) {
               }}
             />
 
-            {/* ── Плашка с именем (z-30) ── */}
-            <div className="absolute bottom-5 right-4 lg:bottom-8 lg:right-6" style={{ zIndex: 30 }}>
+            {/* ── Плашка с именем (z-30) — только на desktop ── */}
+            <div className="hidden lg:block absolute lg:bottom-8 lg:right-6" style={{ zIndex: 30 }}>
               <div
                 className="px-4 py-2.5 rounded-xl"
                 style={{
