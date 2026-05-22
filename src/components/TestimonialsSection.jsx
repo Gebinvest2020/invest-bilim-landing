@@ -5,7 +5,7 @@ import { useInView } from '../hooks/useInView'
 const testimonials = [
   {
     text: 'Мне понравилось, что всё объясняется простыми словами. Раньше тема казалась сложной, а теперь стало понятнее, с чего начать обучение.',
-    name: 'Азиз',
+    name: 'Айбек',
     city: 'Бишкек',
     initials: 'А',
     image: '/testimonials/aziz.png',
