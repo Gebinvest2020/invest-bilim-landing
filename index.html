@@ -19,9 +19,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Preconnect for GA4 (reduces TLS handshake on first request) -->
+    <!-- DNS prefetch for GA4 (loaded via requestIdleCallback, no early TLS needed) -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
 
     <!-- Preload LCP hero image -->
     <link rel="preload" as="image" href="/speaker/optimized/hero-speaker.webp" type="image/webp" fetchpriority="high" />
