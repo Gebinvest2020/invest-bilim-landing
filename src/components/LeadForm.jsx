@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Loader2 } from 'lucide-react'
 
 const SCRIPT_URL =
@@ -44,7 +44,7 @@ async function getIP() {
   }
 }
 
-export default function LeadForm({ onLegal }) {
+export default function LeadForm({ onLegal, sourceLocation = 'unknown', onFormStart }) {
   const [form, setForm] = useState({
     name: '',
     phone: PHONE_PREFIX,
@@ -52,6 +52,15 @@ export default function LeadForm({ onLegal }) {
   })
   const [errors, setErrors] = useState({})
   const [loading, setLoading] = useState(false)
+
+  // Notify parent once on first field interaction (for lead_form_close tracking)
+  const hasNotifiedStart = useRef(false)
+  const notifyFormStart = () => {
+    if (!hasNotifiedStart.current) {
+      hasNotifiedStart.current = true
+      onFormStart?.()
+    }
+  }
 
   const validate = () => {
     const e = {}
@@ -62,6 +71,7 @@ export default function LeadForm({ onLegal }) {
   }
 
   const handlePhone = (e) => {
+    notifyFormStart()
     const formatted = formatPhone(e.target.value)
     setForm((f) => ({ ...f, phone: formatted }))
     if (errors.phone) setErrors((er) => ({ ...er, phone: undefined }))
@@ -119,7 +129,12 @@ export default function LeadForm({ onLegal }) {
       return
     }
 
-    // 3. Редирект на страницу благодарности (Google Ads конверсия)
+    // 3. Сохранить флаг успешной отправки для generate_lead на thank-you.html
+    //    Только безопасные данные — никакого имени, телефона или IP.
+    sessionStorage.setItem('invest_bilim_lead_submitted', 'true')
+    sessionStorage.setItem('invest_bilim_lead_source', sourceLocation)
+
+    // 4. Редирект на страницу благодарности
     window.location.href = '/thank-you.html'
   }
 
@@ -132,6 +147,7 @@ export default function LeadForm({ onLegal }) {
           type="text"
           value={form.name}
           onChange={(e) => {
+            notifyFormStart()
             setForm((f) => ({ ...f, name: e.target.value }))
             if (errors.name) setErrors((er) => ({ ...er, name: undefined }))
           }}

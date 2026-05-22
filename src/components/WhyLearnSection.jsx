@@ -29,7 +29,7 @@ const points = [
 
 export default function WhyLearnSection({ onCTA }) {
   return (
-    <section className="py-20 lg:py-28" style={{ background: '#0a0e1a' }}>
+    <section id="why_learn" className="py-20 lg:py-28" style={{ background: '#0a0e1a' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className="rounded-3xl p-8 sm:p-10 lg:p-14 overflow-hidden relative"

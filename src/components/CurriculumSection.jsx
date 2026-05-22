@@ -61,6 +61,7 @@ export default function CurriculumSection({ onCTA }) {
 
   return (
     <section
+      id="curriculum"
       className="py-20 lg:py-28 relative overflow-hidden"
       style={{ background: 'linear-gradient(180deg, #0a0e1a 0%, #0d1220 100%)' }}
     >

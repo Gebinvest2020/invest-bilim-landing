@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Cookie, Settings } from 'lucide-react'
+import { updateConsent } from '../analytics/gtag'
 
 export default function CookieBanner({ onOpenPolicy }) {
   // Initialise from localStorage synchronously to avoid cascading effect renders
@@ -9,16 +10,19 @@ export default function CookieBanner({ onOpenPolicy }) {
 
   const accept = () => {
     localStorage.setItem('cookie_consent', JSON.stringify({ all: true }))
+    updateConsent(true)
     setVisible(false)
   }
 
   const reject = () => {
     localStorage.setItem('cookie_consent', JSON.stringify({ necessary: true }))
+    updateConsent(false)
     setVisible(false)
   }
 
   const savePrefs = () => {
     localStorage.setItem('cookie_consent', JSON.stringify({ ...prefs, necessary: true }))
+    updateConsent(prefs.analytics === true)
     setVisible(false)
   }
 

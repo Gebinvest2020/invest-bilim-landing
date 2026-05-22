@@ -33,7 +33,7 @@ const steps = [
 
 export default function HowItWorksSection({ onCTA }) {
   return (
-    <section className="py-20 lg:py-28" style={{ background: '#0a0e1a' }}>
+    <section id="how_it_works" className="py-20 lg:py-28" style={{ background: '#0a0e1a' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mb-4"

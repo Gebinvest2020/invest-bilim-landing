@@ -19,12 +19,56 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+    <!-- Preconnect for GA4 (reduces TLS handshake on first request) -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+
     <!-- Preload LCP hero image -->
     <link rel="preload" as="image" href="/speaker/optimized/hero-speaker.webp" type="image/webp" fetchpriority="high" />
 
     <!-- Google Fonts — non-blocking (prevents render-blocking) -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" /></noscript>
+
+    <!-- ── Google Consent Mode v2 defaults (inline, zero network cost) ── -->
+    <!-- Must run before any GA4 event; sets everything denied by default.  -->
+    <!-- analytics_storage is updated to 'granted' by React on mount        -->
+    <!-- if the user previously accepted cookies (initConsent in App.jsx).  -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        analytics_storage:  'denied',
+        ad_storage:         'denied',
+        ad_user_data:       'denied',
+        ad_personalization: 'denied',
+        wait_for_update:    500
+      });
+    </script>
+
+    <!-- ── Google tag (GA4: G-DXTTCNEN4Y) — deferred until browser idle ── -->
+    <!-- requestIdleCallback defers load until after LCP/FID, protecting    -->
+    <!-- PageSpeed score. Falls back to setTimeout on older Safari.          -->
+    <!-- No GTM · No AW tags · No duplicate page_view.                      -->
+    <script>
+      (function () {
+        function loadGA() {
+          if (window.__ga_loaded) return;
+          window.__ga_loaded = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DXTTCNEN4Y';
+          document.head.appendChild(s);
+          gtag('js', new Date());
+          gtag('config', 'G-DXTTCNEN4Y');
+        }
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadGA);
+        } else {
+          window.addEventListener('load', function () { setTimeout(loadGA, 800); });
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

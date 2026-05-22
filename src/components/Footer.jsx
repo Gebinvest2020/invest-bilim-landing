@@ -1,4 +1,5 @@
 import { TrendingUp, Mail, MapPin } from 'lucide-react'
+import { sendEvent } from '../analytics/gtag'
 
 export default function Footer({ onCTA, onLegal }) {
   const legalLinks = [
@@ -100,6 +101,7 @@ export default function Footer({ onCTA, onLegal }) {
                 <a
                   href="mailto:info@invest-bilim.com"
                   className="text-sm text-slate-500 hover:text-slate-300 transition-colors duration-200"
+                  onClick={() => sendEvent('email_click', { link_type: 'email' })}
                 >
                   info@invest-bilim.com
                 </a>

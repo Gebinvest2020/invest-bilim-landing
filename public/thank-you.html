@@ -9,24 +9,60 @@
 
   <!--
     ═══════════════════════════════════════════════════════════
-    GOOGLE ADS CONVERSION TRACKING — вставить сюда
+    GOOGLE ADS CONVERSION TRACKING — вставить сюда при подключении
     ═══════════════════════════════════════════════════════════
     1. В Google Ads → Инструменты → Конверсии → Новая конверсия
     2. Тип: страница (URL /thank-you.html)
     3. Или вставить сгенерированный Global Site Tag (gtag.js) ниже:
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-XXXXXXXXX');
-      gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXX/XXXXXXXXX'});
-    </script>
+    gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXX/XXXXXXXXX'});
 
     Замените AW-XXXXXXXXX на ваш реальный Conversion ID из аккаунта Google Ads.
+    Добавить внутрь блока generate_lead ниже, после имеющегося вызова.
     ═══════════════════════════════════════════════════════════
   -->
+
+  <!-- ── Google Consent Mode v2 defaults ─────────────────────────────── -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage:  'denied',
+      ad_storage:         'denied',
+      ad_user_data:       'denied',
+      ad_personalization: 'denied',
+      wait_for_update:    300
+    });
+    // Restore consent that was set on the main landing page
+    try {
+      var _c = JSON.parse(localStorage.getItem('cookie_consent') || 'null');
+      if (_c && (_c.all || _c.analytics)) {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+    } catch(e) {}
+  </script>
+
+  <!-- ── Google tag (GA4: G-DXTTCNEN4Y) ──────────────────────────────── -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXTTCNEN4Y"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-DXTTCNEN4Y');
+
+    // Fire generate_lead only when the user just submitted the form.
+    // The sessionStorage flag is written by LeadForm.jsx before redirect.
+    // Cleared immediately so a page refresh does NOT duplicate the event.
+    // NO personal data (name / phone / ip) is sent.
+    var _submitted = sessionStorage.getItem('invest_bilim_lead_submitted');
+    if (_submitted === 'true') {
+      var _src = sessionStorage.getItem('invest_bilim_lead_source') || 'unknown';
+      sessionStorage.removeItem('invest_bilim_lead_submitted');
+      sessionStorage.removeItem('invest_bilim_lead_source');
+      gtag('event', 'generate_lead', {
+        lead_source:  'website_form',
+        cta_location: _src
+      });
+    }
+  </script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
