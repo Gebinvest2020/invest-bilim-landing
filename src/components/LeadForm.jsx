@@ -135,7 +135,7 @@ export default function LeadForm({ onLegal }) {
             setForm((f) => ({ ...f, name: e.target.value }))
             if (errors.name) setErrors((er) => ({ ...er, name: undefined }))
           }}
-          placeholder="Например: Азиз"
+          placeholder="Например: Айбек"
           className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-slate-600 outline-none transition-all"
           style={{
             background: 'rgba(255,255,255,0.05)',
