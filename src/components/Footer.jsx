@@ -98,7 +98,12 @@ export default function Footer({ onCTA, onLegal }) {
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail size={13} className="shrink-0 text-slate-600" />
-                <span className="text-sm text-slate-500">info@investbilim.kg</span>
+                <a
+                  href="mailto:info@invest-bilim.com"
+                  className="text-sm text-slate-500 hover:text-slate-300 transition-colors duration-200"
+                >
+                  info@invest-bilim.com
+                </a>
               </div>
             </div>
           </div>
