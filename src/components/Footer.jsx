@@ -38,9 +38,8 @@ export default function Footer({ onCTA, onLegal }) {
                 Invest <span style={{ color: '#c9a84c' }}>Bilim</span>
               </span>
             </div>
-            <p className="text-xs text-slate-600 leading-relaxed mb-5">
-              Образовательный проект по основам инвестирования для жителей Кыргызстана.
-              Объясняем простым языком без сложных терминов.
+            <p className="text-xs text-slate-600 leading-relaxed mb-5" style={{ maxWidth: '220px' }}>
+              Образовательная программа по основам инвестирования для начинающих в Кыргызстане.
             </p>
             <button
               onClick={onCTA}
