@@ -34,23 +34,23 @@ export default function App() {
         {/* 1. Hero */}
         <Hero onCTA={openLeadForm} />
 
-        {/* 2. Большой блок эксперта */}
+        {/* 2. Блок эксперта */}
         <SpeakerHeroSection onCTA={openLeadForm} />
 
-        {/* 3. Отзывы — социальное доказательство сразу после эксперта */}
-        <TestimonialsSection />
+        {/* 3. Как проходит обучение */}
+        <HowItWorksSection onCTA={openLeadForm} />
 
-        {/* 4. Детальная программа — 12 уроков */}
+        {/* 4. Программа обучения — 12 уроков */}
         <LessonsSection onCTA={openLeadForm} />
 
         {/* 5. Что вы разберёте на обучении (6 карточек) */}
         <CurriculumSection onCTA={openLeadForm} />
 
-        {/* 6. Как проходит обучение */}
-        <HowItWorksSection onCTA={openLeadForm} />
-
-        {/* 7. Почему формат подходит новичкам */}
+        {/* 6. Почему формат подходит новичкам */}
         <WhyLearnSection onCTA={openLeadForm} />
+
+        {/* 7. Отзывы */}
+        <TestimonialsSection />
 
         {/* 8. FAQ */}
         <FAQSection />
