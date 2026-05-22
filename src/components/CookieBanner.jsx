@@ -32,9 +32,8 @@ export default function CookieBanner({ onOpenPolicy }) {
     <div className="fixed bottom-0 left-0 right-0 z-[90] p-4 sm:p-5">
       <div className="max-w-3xl mx-auto rounded-2xl p-5"
         style={{
-          background: 'rgba(15,26,46,0.97)',
+          background: 'rgba(10,18,34,0.99)',
           border: '1px solid rgba(255,255,255,0.1)',
-          backdropFilter: 'blur(16px)',
           boxShadow: '0 -8px 40px rgba(0,0,0,0.4)',
         }}>
         {!showSettings ? (
