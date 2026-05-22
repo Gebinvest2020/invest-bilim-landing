@@ -58,7 +58,7 @@ export default function PrivacyPolicy() {
       <Section title="6. Контакты для удаления данных">
         <p>
           Для удаления или изменения ваших персональных данных обратитесь по адресу:{' '}
-          <span style={{ color: '#93c5fd' }}>info@investbilim.kg</span>
+          <a href="mailto:info@invest-bilim.com" style={{ color: '#93c5fd' }}>info@invest-bilim.com</a>
         </p>
       </Section>
 
