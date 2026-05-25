@@ -94,7 +94,7 @@ export default function Footer({ onCTA, onLegal }) {
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2.5">
                 <MapPin size={13} className="shrink-0 text-slate-600" />
-                <span className="text-sm text-slate-500">Кыргызстан</span>
+                <span className="text-sm text-slate-500">ул. Токтогула, 125/1, Бишкек, Кыргызстан</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail size={13} className="shrink-0 text-slate-600" />
