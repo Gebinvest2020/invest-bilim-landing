@@ -88,7 +88,7 @@ export default function App() {
       <Header onCTA={() => openLeadForm('header', 'Записаться')} />
       <main>
         {/* 1. Hero */}
-        <Hero />
+        <Hero onCTA={() => openLeadForm('hero', 'Получить бесплатный доступ')} />
 
         {/* 2. Бесплатные видеоуроки — 12 уроков */}
         <LessonsSection onCTA={() => openLeadForm('lessons', 'Получить бесплатный доступ')} />

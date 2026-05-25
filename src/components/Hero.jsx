@@ -1,5 +1,4 @@
 import { ArrowRight, ShieldCheck } from 'lucide-react'
-import { sendEvent } from '../analytics/gtag'
 
 const stat = [
   { emoji: '📚', label: '12 видеоуроков',  sub: 'доступны бесплатно' },
@@ -10,12 +9,7 @@ const stat = [
 /* ─── Background SVG noise (data URI) ─────────────────────────────────── */
 const noiseUrl = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`
 
-export default function Hero() {
-  const scrollToLessons = () => {
-    sendEvent('cta_click', { cta_location: 'hero', cta_text: 'Смотреть бесплатные уроки' })
-    const el = document.getElementById('lessons')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
+export default function Hero({ onCTA }) {
 
   return (
     <section
@@ -181,7 +175,21 @@ export default function Hero() {
               }}
             />
 
-            {/* Плашка с именем убрана — акцент на спикере перенесён в отдельный блок ниже */}
+            {/* ── Плашка с именем (z-30) ── */}
+            <div className="absolute bottom-4 right-3 lg:bottom-8 lg:right-6" style={{ zIndex: 30 }}>
+              <div
+                className="px-3 py-2 lg:px-4 lg:py-2.5 rounded-xl"
+                style={{
+                  background: 'rgba(4,6,15,0.82)',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  backdropFilter: 'blur(14px)',
+                  WebkitBackdropFilter: 'blur(14px)',
+                }}
+              >
+                <div className="text-xs lg:text-sm font-bold text-white leading-tight">Данияр Аманалиев</div>
+                <div className="text-[10px] lg:text-[11px] text-slate-400 mt-0.5 max-w-[150px] lg:max-w-[160px] leading-snug">Предприниматель и автор образовательной программы</div>
+              </div>
+            </div>
           </div>
 
           {/* ═══════════════════════════════════════════
@@ -268,11 +276,11 @@ export default function Hero() {
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-3 mb-6 animate-fade-in-up hero-d5">
               <button
-                onClick={scrollToLessons}
+                onClick={onCTA}
                 className="btn-gold btn-arrow pulse-gold-glow flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold"
                 style={{ fontSize: '0.9rem' }}
               >
-                Смотреть бесплатные уроки
+                Получить бесплатный доступ
                 <span className="arrow-icon">
                   <ArrowRight size={17} />
                 </span>
