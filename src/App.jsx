@@ -6,7 +6,6 @@ import SpeakerHeroSection from './components/SpeakerHeroSection'
 import CurriculumSection from './components/CurriculumSection'
 import LessonsSection from './components/LessonsSection'
 import HowItWorksSection from './components/HowItWorksSection'
-import WhyLearnSection from './components/WhyLearnSection'
 import TestimonialsSection from './components/TestimonialsSection'
 import FAQSection from './components/FAQSection'
 import FinalCTA from './components/FinalCTA'
@@ -35,8 +34,8 @@ export default function App() {
   // ── Section visibility tracking (once per section per page visit) ──────
   useEffect(() => {
     const sections = [
-      'speaker', 'how_it_works', 'lessons', 'curriculum',
-      'why_learn', 'testimonials', 'faq', 'final_cta',
+      'lessons', 'curriculum', 'testimonials',
+      'speaker', 'how_it_works', 'faq', 'final_cta',
     ]
     const seen = new Set()
     const observers = []
@@ -89,30 +88,27 @@ export default function App() {
       <Header onCTA={() => openLeadForm('header', 'Записаться')} />
       <main>
         {/* 1. Hero */}
-        <Hero onCTA={() => openLeadForm('hero', 'Получить бесплатный доступ')} />
+        <Hero />
 
-        {/* 2. Блок эксперта */}
-        <SpeakerHeroSection onCTA={() => openLeadForm('speaker', 'Записаться на вводный урок')} />
-
-        {/* 3. Как проходит обучение */}
-        <HowItWorksSection onCTA={() => openLeadForm('how_it_works', 'Записаться на уроки')} />
-
-        {/* 4. Программа обучения — 12 уроков */}
+        {/* 2. Бесплатные видеоуроки — 12 уроков */}
         <LessonsSection onCTA={() => openLeadForm('lessons', 'Получить бесплатный доступ')} />
 
-        {/* 5. Что вы разберёте на обучении (6 карточек) */}
-        <CurriculumSection onCTA={() => openLeadForm('curriculum', 'Получить программу обучения')} />
+        {/* 3. Что вы узнаете */}
+        <CurriculumSection onCTA={() => openLeadForm('curriculum', 'Получить бесплатный доступ')} />
 
-        {/* 6. Почему формат подходит новичкам */}
-        <WhyLearnSection onCTA={() => openLeadForm('why_learn', 'Узнать подробнее о программе')} />
-
-        {/* 7. Отзывы */}
+        {/* 4. Отзывы */}
         <TestimonialsSection />
 
-        {/* 8. FAQ */}
+        {/* 5. Блок Данияра Аманалиева */}
+        <SpeakerHeroSection onCTA={() => openLeadForm('speaker', 'Получить бесплатный доступ')} />
+
+        {/* 6. Как проходит обучение */}
+        <HowItWorksSection onCTA={() => openLeadForm('how_it_works', 'Получить доступ')} />
+
+        {/* 7. FAQ */}
         <FAQSection />
 
-        {/* 9. Финальный CTA + форма */}
+        {/* 8. Финальный CTA + форма */}
         <FinalCTA onLegal={openLegal} />
       </main>
       <Footer
@@ -123,7 +119,7 @@ export default function App() {
       <Modal
         isOpen={modalOpen}
         onClose={closeLeadForm}
-        title="Оставьте заявку, чтобы получить бесплатный доступ к вводным урокам и узнать детали программы"
+        title="Оставьте контакт — мы расскажем о программе и дадим доступ к вводным урокам"
       >
         <LeadForm
           onLegal={openLegal}

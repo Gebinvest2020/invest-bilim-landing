@@ -40,13 +40,13 @@ export default function Footer({ onCTA, onLegal }) {
               </span>
             </div>
             <p className="text-xs text-slate-600 leading-relaxed mb-5" style={{ maxWidth: '220px' }}>
-              Образовательная программа по основам инвестирования для начинающих в Кыргызстане.
+              Образовательная программа с бесплатными видеоуроками по инвестициям для жителей Кыргызстана.
             </p>
             <button
               onClick={onCTA}
               className="btn-gold px-4 py-2 rounded-lg text-xs font-bold"
             >
-              Записаться на уроки
+              Получить доступ
             </button>
           </div>
 
@@ -94,7 +94,7 @@ export default function Footer({ onCTA, onLegal }) {
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2.5">
                 <MapPin size={13} className="shrink-0 text-slate-600" />
-                <span className="text-sm text-slate-500">ул. Токтогула, 125/1, Бишкек, Кыргызстан</span>
+                <span className="text-sm text-slate-500">ул. Токтогула, 125/1, Бишкек 720001, Кыргызстан</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail size={13} className="shrink-0 text-slate-600" />

@@ -12,20 +12,20 @@ export default function FinalCTA({ onLegal }) {
               Начните обучение
             </div>
             <h2 className="text-3xl lg:text-5xl font-bold text-white mb-5 leading-tight" style={{ letterSpacing: '-0.02em' }}>
-              Начните с понятного{' '}
-              <span className="gradient-text">объяснения основ</span>
+              Получите доступ к{' '}
+              <span className="gradient-text">бесплатным видеоурокам</span>
             </h2>
             <p className="text-slate-400 leading-relaxed text-base mb-8">
-              Оставьте заявку, чтобы получить бесплатный доступ к вводным урокам и консультацию по программе от команды проекта.
+              Оставьте контакт, чтобы открыть вводные материалы об инвестициях.
             </p>
 
             {/* Bullet points */}
             <div className="flex flex-col gap-3">
               {[
-                'Бесплатный доступ к вводным материалам',
-                'Простой язык, понятные примеры',
-                'Что важно понять перед первыми шагами',
-                'Видеоуроки + консультация по программе',
+                'Бесплатные вводные видеоуроки',
+                'Отличия акций и облигаций',
+                'Что учитывать перед выбором направления',
+                'План дальнейшего изучения темы',
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: '#c9a84c' }} />
@@ -42,7 +42,7 @@ export default function FinalCTA({ onLegal }) {
               border: '1px solid rgba(255,255,255,0.08)',
             }}>
             <h3 className="text-lg font-semibold text-white mb-1">Получить бесплатный доступ</h3>
-            <p className="text-sm text-slate-500 mb-5">Оставьте заявку — мы свяжемся с вами</p>
+            <p className="text-sm text-slate-500 mb-5">Оставьте контакт, чтобы открыть бесплатные материалы</p>
             <LeadForm onLegal={onLegal} sourceLocation="final_cta" />
           </div>
         </div>

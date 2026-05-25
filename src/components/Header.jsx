@@ -39,7 +39,11 @@ export default function Header({ onCTA }) {
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <div className="flex items-center gap-2.5">
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            aria-label="Вернуться в начало страницы"
+            className="flex items-center gap-2.5 cursor-pointer"
+          >
             <div
               className="w-8 h-8 rounded-lg flex items-center justify-center"
               style={{ background: 'linear-gradient(135deg, #1a56db 0%, #0d2137 100%)' }}
@@ -49,7 +53,7 @@ export default function Header({ onCTA }) {
             <span className="font-bold text-white text-sm tracking-tight">
               Invest <span style={{ color: '#c9a84c' }}>Bilim</span>
             </span>
-          </div>
+          </button>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-7">
@@ -70,7 +74,7 @@ export default function Header({ onCTA }) {
               onClick={onCTA}
               className="btn-primary px-5 py-2 rounded-lg text-sm font-semibold text-white"
             >
-              Записаться
+              Получить доступ
             </button>
           </div>
 
@@ -102,7 +106,7 @@ export default function Header({ onCTA }) {
               onClick={() => { onCTA(); setMenuOpen(false) }}
               className="btn-gold mt-3 py-3 rounded-xl text-sm font-bold text-center"
             >
-              Записаться на уроки
+              Получить доступ
             </button>
           </div>
         </div>

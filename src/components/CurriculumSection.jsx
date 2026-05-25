@@ -1,10 +1,10 @@
 import {
   BookOpen,
-  Rocket,
   BarChart3,
   AlertTriangle,
   Search,
   GraduationCap,
+  Layers,
   ArrowRight,
 } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
@@ -13,43 +13,43 @@ const cards = [
   {
     icon: BookOpen,
     emoji: '📚',
-    title: 'Основы инвестирования',
-    desc: 'Что это такое, как работает и почему важно понять базу перед любыми первыми шагами.',
+    title: 'Определите точку старта',
+    desc: 'Поймёте, с чего начать изучение темы и какие цели можно поставить.',
     color: '#1a56db',
   },
   {
-    icon: Rocket,
-    emoji: '🚀',
-    title: 'С чего начать новичку',
-    desc: 'Что изучить в первую очередь, чтобы не действовать наугад и не запутаться в начале.',
+    icon: Layers,
+    emoji: '📊',
+    title: 'Сравните основные варианты',
+    desc: 'Узнаете, чем отличаются акции и облигации и что важно учитывать.',
     color: '#34d399',
   },
   {
     icon: BarChart3,
-    emoji: '📊',
-    title: 'Акции, облигации, фонды',
-    desc: 'Ключевые отличия основных инструментов — простым языком, без сложных терминов.',
+    emoji: '🔎',
+    title: 'Проверьте информацию',
+    desc: 'Поймёте, какие данные изучить перед выбором направления.',
     color: '#c9a84c',
   },
   {
     icon: AlertTriangle,
     emoji: '⚠️',
-    title: 'Что важно знать новичку',
-    desc: 'Что важно учитывать в начале, чтобы лучше ориентироваться в теме и принимать более осознанные решения.',
+    title: 'Задайте правильные вопросы перед выбором',
+    desc: 'Узнаете, какие моменты стоит уточнить и сравнить перед следующим шагом.',
     color: '#f87171',
   },
   {
     icon: Search,
     emoji: '🔍',
-    title: 'Типичные ошибки начинающих',
-    desc: 'Какие заблуждения мешают осознанному старту и как их замечать заранее.',
+    title: 'Составьте личный план',
+    desc: 'Определите цель, срок и дальнейшую последовательность действий.',
     color: '#a78bfa',
   },
   {
     icon: GraduationCap,
     emoji: '🎯',
-    title: 'Как выстраивать обучение',
-    desc: 'Как идти по шагам, не перегружать себя и планомерно углублять понимание темы.',
+    title: 'Продолжите обучение',
+    desc: 'Узнаете, какие темы стоит изучить после вводных уроков.',
     color: '#4ecdc4',
   },
 ]
@@ -86,17 +86,17 @@ export default function CurriculumSection({ onCTA }) {
               color: '#4ecdc4',
             }}
           >
-            Программа обучения
+            О программе
           </div>
           <h2
             className="text-3xl lg:text-4xl font-bold text-white mb-4"
             style={{ letterSpacing: '-0.025em' }}
           >
-            Что вы{' '}
-            <span className="gradient-text">разберёте на обучении</span>
+            Что вы получите{' '}
+            <span className="gradient-text">после уроков</span>
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto leading-relaxed text-base">
-            Уроки идут от простого к сложному. Всё объяснено понятным языком — без жаргона и без давления.
+            Материалы помогут разобраться в вариантах и определить дальнейшие действия.
           </p>
         </div>
 
@@ -138,14 +138,11 @@ export default function CurriculumSection({ onCTA }) {
             onClick={onCTA}
             className="btn-gold btn-arrow inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-sm font-bold"
           >
-            Получить программу обучения
+            Получить бесплатный доступ
             <span className="arrow-icon">
               <ArrowRight size={15} />
             </span>
           </button>
-          <p className="text-xs mt-3" style={{ color: 'rgba(100,116,139,0.7)' }}>
-            Оставьте заявку — мы расскажем о формате и дадим доступ к вводным урокам
-          </p>
         </div>
 
       </div>

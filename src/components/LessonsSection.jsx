@@ -1,24 +1,24 @@
 import { useState } from 'react'
-import { Play, ChevronDown, ChevronUp, Lock, ArrowRight } from 'lucide-react'
+import { Play, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
 
 const lessons = [
   // lesson-1: portrait 1091×1442 — показываем верхнюю часть
-  { id: 1,  imgPos: 'center 30%',  title: 'Что такое инвестиции простыми словами', desc: 'Объясним, что это такое и почему перед первыми шагами важно понять базу.', gradient: 'linear-gradient(135deg, #1a3a6e 0%, #0d2137 60%, #0a0e1a 100%)', accent: '#3b82f6', icon: '📘' },
+  { id: 1,  imgPos: 'center 30%',  title: 'С чего начинается инвестирование', desc: 'Узнайте, какие цели можно поставить и что важно определить до выбора направления.', gradient: 'linear-gradient(135deg, #1a3a6e 0%, #0d2137 60%, #0a0e1a 100%)', accent: '#3b82f6', icon: '📘' },
   // lesson-2..7: landscape ~3:2 1537×1023 — чуть выше центра
-  { id: 2,  imgPos: 'center 25%',  title: 'С чего начать новичку', desc: 'Разберём, что изучить сначала, чтобы не действовать наугад.', gradient: 'linear-gradient(135deg, #1e4d3a 0%, #0d2b1f 60%, #0a0e1a 100%)', accent: '#34d399', icon: '🚀' },
-  { id: 3,  imgPos: 'center 25%',  title: 'Почему не стоит спешить', desc: 'Покажем, почему быстрые решения часто приводят к ошибкам.', gradient: 'linear-gradient(135deg, #4a2f1a 0%, #2a1a0d 60%, #0a0e1a 100%)', accent: '#f59e0b', icon: '⏳' },
-  { id: 4,  imgPos: 'center 25%',  title: 'Как не сделать ошибку в самом начале', desc: 'Разберём, что важно понять заранее, чтобы не принимать первые решения на эмоциях.', gradient: 'linear-gradient(135deg, #4a1a2f 0%, #2a0d1a 60%, #0a0e1a 100%)', accent: '#f87171', icon: '⚠️' },
-  { id: 5,  imgPos: 'center 25%',  title: 'Как не запутаться в терминах', desc: 'Разберём самые частые слова и понятия простым человеческим языком.', gradient: 'linear-gradient(135deg, #2d1a4a 0%, #1a0d2a 60%, #0a0e1a 100%)', accent: '#a78bfa', icon: '💬' },
-  { id: 6,  imgPos: 'center 25%',  title: 'Ошибки начинающих', desc: 'Покажем, какие ошибки чаще всего делают новички и как их заранее замечать.', gradient: 'linear-gradient(135deg, #1a3a3a 0%, #0d2121 60%, #0a0e1a 100%)', accent: '#4ecdc4', icon: '🔍' },
-  { id: 7,  imgPos: 'center 25%',  title: 'Как выбирать, чему доверять', desc: 'Объясним, как осторожно относиться к громким обещаниям и красивым словам.', gradient: 'linear-gradient(135deg, #3a2a1a 0%, #1f1610 60%, #0a0e1a 100%)', accent: '#c9a84c', icon: '🔎' },
+  { id: 2,  imgPos: 'center 25%',  title: 'Чем отличаются акции и облигации', desc: 'Разберите два известных варианта и поймите, что важно сравнить перед выбором.', gradient: 'linear-gradient(135deg, #1e4d3a 0%, #0d2b1f 60%, #0a0e1a 100%)', accent: '#34d399', icon: '🚀' },
+  { id: 3,  imgPos: 'center 25%',  title: 'Какие направления можно изучить', desc: 'Посмотрите, какие варианты существуют и чем они могут отличаться между собой.', gradient: 'linear-gradient(135deg, #4a2f1a 0%, #2a1a0d 60%, #0a0e1a 100%)', accent: '#f59e0b', icon: '⏳' },
+  { id: 4,  imgPos: 'center 25%',  title: 'Куда можно направлять средства', desc: 'Разберите разные направления и поймите, какие особенности важно учитывать.', gradient: 'linear-gradient(135deg, #4a1a2f 0%, #2a0d1a 60%, #0a0e1a 100%)', accent: '#f87171', icon: '⚠️' },
+  { id: 5,  imgPos: 'center 25%',  title: 'От чего зависит результат вложений', desc: 'Узнайте, какие факторы могут влиять на результат и что стоит проверить заранее.', gradient: 'linear-gradient(135deg, #2d1a4a 0%, #1a0d2a 60%, #0a0e1a 100%)', accent: '#a78bfa', icon: '💬' },
+  { id: 6,  imgPos: 'center 25%',  title: 'Как выбрать направление под свою цель', desc: 'Сравните варианты для накоплений, крупных покупок и долгосрочных планов.', gradient: 'linear-gradient(135deg, #1a3a3a 0%, #0d2121 60%, #0a0e1a 100%)', accent: '#4ecdc4', icon: '🔍' },
+  { id: 7,  imgPos: 'center 25%',  title: 'Как составить личный план действий', desc: 'Определите цель, срок, доступную сумму и последовательность дальнейших шагов.', gradient: 'linear-gradient(135deg, #3a2a1a 0%, #1f1610 60%, #0a0e1a 100%)', accent: '#c9a84c', icon: '🔎' },
   // lesson-8: landscape, centre crop
-  { id: 8,  imgPos: 'center 25%',  title: 'Как понять свой первый шаг', desc: 'Разберём, как подойти к обучению спокойно и без лишней спешки.', gradient: 'linear-gradient(135deg, #1a2a4a 0%, #0d1627 60%, #0a0e1a 100%)', accent: '#60a5fa', icon: '👣' },
+  { id: 8,  imgPos: 'center 25%',  title: 'Как проверить информацию перед выбором', desc: 'Узнайте, где искать данные и какие детали важно сравнить.', gradient: 'linear-gradient(135deg, #1a2a4a 0%, #0d1627 60%, #0a0e1a 100%)', accent: '#60a5fa', icon: '👣' },
   // lesson-9,11: 1448×1086 (~4:3) — ближе к квадрату, центр
-  { id: 9,  imgPos: 'center 30%',  title: 'Что важно знать о рынке', desc: 'Объясним, почему рынок может меняться и почему это нужно учитывать.', gradient: 'linear-gradient(135deg, #1a4a2a 0%, #0d271a 60%, #0a0e1a 100%)', accent: '#6ee7b7', icon: '📊' },
-  { id: 10, imgPos: 'center 25%',  title: 'Как читать простую информацию', desc: 'Покажем, на какие базовые вещи обращать внимание при изучении темы.', gradient: 'linear-gradient(135deg, #3a1a4a 0%, #1f0d27 60%, #0a0e1a 100%)', accent: '#c084fc', icon: '📖' },
-  { id: 11, imgPos: 'center 30%',  title: 'Как учиться без перегруза', desc: 'Разберём, как идти по шагам и не пытаться понять всё за один день.', gradient: 'linear-gradient(135deg, #4a3a1a 0%, #27200d 60%, #0a0e1a 100%)', accent: '#fbbf24', icon: '🧘' },
-  { id: 12, imgPos: 'center 25%',  title: 'Что делать после вводных уроков', desc: 'Покажем, как продолжить обучение и какие темы стоит изучить дальше.', gradient: 'linear-gradient(135deg, #1a4a3a 0%, #0d2721 60%, #0a0e1a 100%)', accent: '#2dd4bf', icon: '🎯' },
+  { id: 9,  imgPos: 'center 30%',  title: 'Как избежать необдуманного решения', desc: 'Разберите частые ошибки и вопросы, которые стоит задать себе заранее.', gradient: 'linear-gradient(135deg, #1a4a2a 0%, #0d271a 60%, #0a0e1a 100%)', accent: '#6ee7b7', icon: '📊' },
+  { id: 10, imgPos: 'center 25%',  title: 'Как изменение цен влияет на планы', desc: 'Поймите, почему стоимость денег со временем меняется и что важно учитывать.', gradient: 'linear-gradient(135deg, #3a1a4a 0%, #1f0d27 60%, #0a0e1a 100%)', accent: '#c084fc', icon: '📖' },
+  { id: 11, imgPos: 'center 30%',  title: 'Как распределить сумму между целями', desc: 'Разберите, как учитывать ближайшие расходы и долгосрочные задачи.', gradient: 'linear-gradient(135deg, #4a3a1a 0%, #27200d 60%, #0a0e1a 100%)', accent: '#fbbf24', icon: '🧘' },
+  { id: 12, imgPos: 'center 25%',  title: 'Что изучать после базовых уроков', desc: 'Получите последовательность тем, которые помогут двигаться дальше.', gradient: 'linear-gradient(135deg, #1a4a3a 0%, #0d2721 60%, #0a0e1a 100%)', accent: '#2dd4bf', icon: '🎯' },
 ]
 
 const staggerDelays = ['', 'fade-up-d1', 'fade-up-d2', 'fade-up-d3', 'fade-up-d4', 'fade-up-d5']
@@ -94,7 +94,7 @@ function LessonCard({ lesson, onCTA, animDelay }) {
           </span>
         </div>
 
-        {/* Lock / Play */}
+        {/* Play icon */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-11 h-11 rounded-full flex items-center justify-center"
             style={{
@@ -104,7 +104,7 @@ function LessonCard({ lesson, onCTA, animDelay }) {
               transform: hovered ? 'scale(1.12)' : 'scale(1)',
               transition: 'all 0.3s cubic-bezier(0.4,0,0.2,1)',
             }}>
-            <Lock size={14} className="text-white opacity-80" />
+            <Play size={14} className="text-white opacity-80" style={{ marginLeft: 2 }} />
           </div>
         </div>
       </div>
@@ -125,7 +125,7 @@ function LessonCard({ lesson, onCTA, animDelay }) {
         <div className="flex items-center gap-1.5 text-xs font-semibold"
           style={{ color: lesson.accent }}>
           <Play size={10} style={{ fill: lesson.accent }} />
-          Смотреть урок
+          Открыть урок
         </div>
       </div>
     </div>
@@ -153,15 +153,14 @@ export default function LessonsSection({ onCTA }) {
           className={`text-center mb-14 max-w-3xl mx-auto fade-up ${headerVisible ? 'is-visible' : ''}`}>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-5"
             style={{ background: 'rgba(26,86,219,0.1)', border: '1px solid rgba(26,86,219,0.28)', color: '#93c5fd' }}>
-            Программа обучения
+            Видеоуроки
           </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight" style={{ letterSpacing: '-0.025em' }}>
-            После заявки вы получите{' '}
-            <span className="gradient-text">бесплатный доступ к вводным урокам</span>{' '}и консультацию по программе
+            Выберите{' '}
+            <span className="gradient-text">бесплатный урок</span>
           </h2>
           <p className="text-slate-400 leading-relaxed text-base">
-            Уроки идут по шагам: от простого объяснения темы до понимания первых действий,
-            частых ошибок и важных моментов для новичка.
+            Посмотрите темы и откройте материал, который хотите изучить первым.
           </p>
         </div>
 
@@ -203,7 +202,7 @@ export default function LessonsSection({ onCTA }) {
           </button>
 
           <p className="text-xs" style={{ color: 'rgba(100,116,139,0.7)' }}>
-            Нажав на любой урок, вы сможете оставить заявку на получение доступа
+            Выберите урок и откройте доступ к бесплатным материалам программы.
           </p>
         </div>
       </div>

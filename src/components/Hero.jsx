@@ -1,17 +1,19 @@
-import { ArrowRight, PlayCircle, ShieldCheck } from 'lucide-react'
+import { ArrowRight, ShieldCheck } from 'lucide-react'
+import { sendEvent } from '../analytics/gtag'
 
 const stat = [
-  { emoji: '📚', label: '12 уроков',         sub: 'программа по шагам' },
-  { emoji: '💬', label: 'Простым языком',    sub: 'без сложных терминов' },
-  { emoji: '🎁', label: 'Вводные уроки',     sub: 'бесплатный доступ' },
+  { emoji: '📚', label: '12 видеоуроков',  sub: 'доступны бесплатно' },
+  { emoji: '📈', label: 'Сравните варианты', sub: 'акции и облигации' },
+  { emoji: '🎯', label: 'План обучения',   sub: 'что изучать дальше' },
 ]
 
 /* ─── Background SVG noise (data URI) ─────────────────────────────────── */
 const noiseUrl = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`
 
-export default function Hero({ onCTA }) {
-  const scrollTo = (id) => {
-    const el = document.querySelector(id)
+export default function Hero() {
+  const scrollToLessons = () => {
+    sendEvent('cta_click', { cta_location: 'hero', cta_text: 'Смотреть бесплатные уроки' })
+    const el = document.getElementById('lessons')
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
@@ -179,21 +181,7 @@ export default function Hero({ onCTA }) {
               }}
             />
 
-            {/* ── Плашка с именем (z-30) — только на desktop ── */}
-            <div className="hidden lg:block absolute lg:bottom-8 lg:right-6" style={{ zIndex: 30 }}>
-              <div
-                className="px-4 py-2.5 rounded-xl"
-                style={{
-                  background: 'rgba(4,6,15,0.82)',
-                  border: '1px solid rgba(255,255,255,0.12)',
-                  backdropFilter: 'blur(14px)',
-                  WebkitBackdropFilter: 'blur(14px)',
-                }}
-              >
-                <div className="text-sm font-bold text-white leading-tight">Данияр Аманалиев</div>
-                <div className="text-[11px] text-slate-400 mt-0.5 max-w-[160px] leading-snug">Предприниматель и автор образовательной программы</div>
-              </div>
-            </div>
+            {/* Плашка с именем убрана — акцент на спикере перенесён в отдельный блок ниже */}
           </div>
 
           {/* ═══════════════════════════════════════════
@@ -217,7 +205,7 @@ export default function Hero({ onCTA }) {
                   className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"
                   style={{ boxShadow: '0 0 8px #60a5fa', animation: 'pulseGreen 2s infinite' }}
                 />
-                АВТОРСКИЙ ВИДЕОКУРС · КЫРГЫЗСТАН
+                БЕСПЛАТНЫЕ ВИДЕОУРОКИ • КЫРГЫЗСТАН
               </span>
             </div>
 
@@ -230,12 +218,9 @@ export default function Hero({ onCTA }) {
                 lineHeight: 1.07,
               }}
             >
-              <span style={{ display: 'block' }}>Инвестиции</span>
-              <span style={{ display: 'block', color: 'rgba(215,225,240,0.82)' }}>
-                простыми словами:
-              </span>
+              <span style={{ display: 'block' }}>Бесплатные видеоуроки</span>
               <span className="gradient-text" style={{ display: 'block' }}>
-                с чего начать&nbsp;новичку
+                по инвестициям
               </span>
             </h1>
 
@@ -255,8 +240,8 @@ export default function Hero({ onCTA }) {
               className="text-slate-400 mb-8 animate-fade-in-up hero-d3"
               style={{ fontSize: '1.05rem', lineHeight: 1.8, maxWidth: '460px' }}
             >
-              Бесплатные вводные видеоуроки и консультация по программе для жителей
-              Кыргызстана — без сложных слов и давления.
+              Узнайте, чем отличаются акции и облигации, на что обратить внимание
+              при выборе и как составить свой план действий.
             </p>
 
             {/* Stat chips */}
@@ -283,41 +268,14 @@ export default function Hero({ onCTA }) {
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-3 mb-6 animate-fade-in-up hero-d5">
               <button
-                onClick={onCTA}
+                onClick={scrollToLessons}
                 className="btn-gold btn-arrow pulse-gold-glow flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold"
                 style={{ fontSize: '0.9rem' }}
               >
-                Получить бесплатный доступ
+                Смотреть бесплатные уроки
                 <span className="arrow-icon">
                   <ArrowRight size={17} />
                 </span>
-              </button>
-
-              <button
-                onClick={() => scrollTo('#lessons')}
-                className="flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl font-semibold transition-all duration-300"
-                style={{
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  background: 'rgba(255,255,255,0.038)',
-                  color: '#cbd5e1',
-                  fontSize: '0.875rem',
-                  backdropFilter: 'blur(12px)',
-                }}
-                onMouseEnter={(e) =>
-                  Object.assign(e.currentTarget.style, {
-                    background: 'rgba(255,255,255,0.08)',
-                    borderColor: 'rgba(255,255,255,0.2)',
-                  })
-                }
-                onMouseLeave={(e) =>
-                  Object.assign(e.currentTarget.style, {
-                    background: 'rgba(255,255,255,0.038)',
-                    borderColor: 'rgba(255,255,255,0.1)',
-                  })
-                }
-              >
-                <PlayCircle size={16} />
-                Посмотреть программу
               </button>
             </div>
 
@@ -331,7 +289,7 @@ export default function Hero({ onCTA }) {
             >
               <ShieldCheck size={14} className="mt-0.5 shrink-0" style={{ color: '#4ecdc4' }} />
               <p className="text-xs leading-relaxed" style={{ color: 'rgba(148,163,184,0.7)' }}>
-                Участие во вводных уроках бесплатное. Материалы носят образовательный характер.
+                Материалы носят образовательный характер.
               </p>
             </div>
 

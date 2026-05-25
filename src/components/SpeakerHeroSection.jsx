@@ -2,9 +2,9 @@ import { CheckCircle2, ArrowRight } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
 
 const traits = [
-  { text: 'Понятный язык — никакого профессионального жаргона', color: '#4ecdc4' },
+  { text: 'Узнаете, на что обратить внимание перед выбором акций и облигаций', color: '#4ecdc4' },
   { text: 'Разбор важных моментов, ошибок и первых шагов', color: '#93c5fd' },
-  { text: 'Образовательный формат без обещаний результата', color: '#a78bfa' },
+  { text: 'Образовательный формат — материалы носят информационный характер', color: '#a78bfa' },
 ]
 
 export default function SpeakerHeroSection({ onCTA }) {
@@ -67,8 +67,8 @@ export default function SpeakerHeroSection({ onCTA }) {
 
               {/* Короткое bio */}
               <p className="text-slate-400 text-sm leading-relaxed">
-                Объясняет инвестиции простым языком — без давления, сложных терминов
-                и обещаний дохода. Помогает новичкам понять базовые принципы и первые шаги.
+                Помогает разобраться в основных инструментах, важных факторах выбора
+                и последовательности первых шагов в изучении инвестиций.
               </p>
 
               {/* Бейдж */}
@@ -104,7 +104,7 @@ export default function SpeakerHeroSection({ onCTA }) {
                   onClick={onCTA}
                   className="btn-gold btn-arrow inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl text-sm font-bold"
                 >
-                  Записаться на вводный урок
+                  Получить бесплатный доступ
                   <span className="arrow-icon">
                     <ArrowRight size={14} />
                   </span>

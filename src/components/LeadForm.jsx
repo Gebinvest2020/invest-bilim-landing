@@ -263,7 +263,7 @@ export default function LeadForm({ onLegal, sourceLocation = 'unknown', onFormSt
             Отправляем...
           </>
         ) : (
-          'Отправить заявку'
+          'Получить бесплатный доступ'
         )}
       </button>
 

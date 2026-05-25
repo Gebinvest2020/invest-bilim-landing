@@ -1,32 +1,32 @@
-import { ClipboardEdit, Phone, PlayCircle, GraduationCap, ArrowRight } from 'lucide-react'
+import { BookOpen, ClipboardEdit, PlayCircle, GraduationCap, ArrowRight } from 'lucide-react'
 
 const steps = [
   {
-    icon: ClipboardEdit,
+    icon: BookOpen,
     step: '01',
-    title: 'Оставляете заявку',
-    desc: 'Заполните короткую форму с именем и телефоном на нашем сайте.',
+    title: 'Выберите тему урока',
+    desc: 'Посмотрите программу и определите, с какого материала хотите начать.',
     color: '#1a56db',
   },
   {
-    icon: Phone,
+    icon: ClipboardEdit,
     step: '02',
-    title: 'Мы связываемся с вами',
-    desc: 'Менеджер проекта свяжется с вами и расскажет, как проходит обучение и как получить доступ к материалам.',
+    title: 'Оставьте контакт для доступа',
+    desc: 'Укажите имя и номер телефона, чтобы открыть бесплатные видеоуроки.',
     color: '#c9a84c',
   },
   {
     icon: PlayCircle,
     step: '03',
-    title: 'Получаете доступ к программе',
-    desc: 'После подтверждения вы получаете доступ к видеоурокам от Данияра Аманалиева и вводную консультацию по формату программы.',
+    title: 'Получите материалы',
+    desc: 'После отправки формы вам откроется доступ к вводным урокам программы.',
     color: '#4ecdc4',
   },
   {
     icon: GraduationCap,
     step: '04',
-    title: 'Изучаете уроки с поддержкой по программе',
-    desc: 'Смотрите материалы в удобное время, а консультант помогает разобраться с форматом обучения и следующими шагами.',
+    title: 'Изучайте в удобное время',
+    desc: 'Смотрите уроки и определите, какие темы хотите изучить дальше.',
     color: '#a78bfa',
   },
 ]
@@ -41,11 +41,11 @@ export default function HowItWorksSection({ onCTA }) {
             Как всё устроено
           </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
-            Как проходит{' '}
-            <span className="gradient-text">обучение</span>
+            Как получить{' '}
+            <span className="gradient-text">доступ к урокам</span>
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto leading-relaxed">
-            Всё просто и без лишних шагов. От заявки до начала обучения — четыре простых шага.
+            Выберите интересующую тему, оставьте контакт и получите бесплатные материалы для изучения.
           </p>
         </div>
 
@@ -86,7 +86,7 @@ export default function HowItWorksSection({ onCTA }) {
             onClick={onCTA}
             className="btn-primary inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white"
           >
-            Записаться на уроки
+            Получить доступ
             <ArrowRight size={15} />
           </button>
         </div>
