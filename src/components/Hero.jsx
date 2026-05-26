@@ -248,8 +248,8 @@ export default function Hero({ onCTA }) {
               className="text-slate-400 mb-8 animate-fade-in-up hero-d3"
               style={{ fontSize: '1.05rem', lineHeight: 1.8, maxWidth: '460px' }}
             >
-              Узнайте, как инвестиции могут помочь в достижении финансовых целей
-              и что важно знать перед первым вложением.
+              Узнайте, как инвестиции могут помочь разумнее распоряжаться средствами
+              и планировать своё будущее.
             </p>
 
             {/* Stat chips */}
