@@ -102,10 +102,7 @@ export default function App() {
         {/* 5. Блок Данияра Аманалиева */}
         <SpeakerHeroSection onCTA={() => openLeadForm('speaker', 'Получить бесплатный доступ')} />
 
-        {/* 6. Как проходит обучение */}
-        <HowItWorksSection onCTA={() => openLeadForm('how_it_works', 'Получить доступ')} />
-
-        {/* 7. FAQ */}
+        {/* 6. FAQ */}
         <FAQSection />
 
         {/* 8. Финальный CTA + форма */}

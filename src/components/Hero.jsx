@@ -248,8 +248,8 @@ export default function Hero({ onCTA }) {
               className="text-slate-400 mb-8 animate-fade-in-up hero-d3"
               style={{ fontSize: '1.05rem', lineHeight: 1.8, maxWidth: '460px' }}
             >
-              Узнайте, чем отличаются акции и облигации, на что обратить внимание
-              при выборе и как составить свой план действий.
+              Узнайте, с чего начать изучение инвестиций и какие знания помогут
+              принимать более обдуманные решения.
             </p>
 
             {/* Stat chips */}

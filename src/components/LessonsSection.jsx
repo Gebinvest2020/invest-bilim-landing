@@ -96,15 +96,18 @@ function LessonCard({ lesson, onCTA, animDelay }) {
 
         {/* Play icon */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-11 h-11 rounded-full flex items-center justify-center"
+          <div
+            className="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center"
             style={{
-              background: hovered ? `${lesson.accent}28` : 'rgba(10,14,26,0.65)',
-              border: hovered ? `1.5px solid ${lesson.accent}60` : '1.5px solid rgba(255,255,255,0.2)',
-              backdropFilter: 'blur(8px)',
-              transform: hovered ? 'scale(1.12)' : 'scale(1)',
-              transition: 'all 0.3s cubic-bezier(0.4,0,0.2,1)',
-            }}>
-            <Play size={14} className="text-white opacity-80" style={{ marginLeft: 2 }} />
+              background: '#c9a84c',
+              boxShadow: hovered
+                ? '0 8px 28px rgba(0,0,0,0.55), 0 2px 8px rgba(0,0,0,0.35)'
+                : '0 4px 18px rgba(0,0,0,0.45), 0 1px 4px rgba(0,0,0,0.3)',
+              transform: hovered ? 'scale(1.05)' : 'scale(1)',
+              transition: 'transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0,0.2,1)',
+            }}
+          >
+            <Play size={18} style={{ fill: '#0a1220', color: '#0a1220', marginLeft: 2 }} />
           </div>
         </div>
       </div>
