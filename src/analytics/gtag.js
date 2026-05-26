@@ -18,14 +18,18 @@ export function sendEvent(name, params = {}) {
 }
 
 /**
- * Update analytics_storage consent after the user makes a choice.
- * ad_storage / ad_user_data / ad_personalization remain 'denied'
- * until Google Ads is connected.
+ * Update consent signals after the user makes a choice.
+ * analytics_storage follows the analytics preference.
+ * ad_storage / ad_user_data / ad_personalization follow the advertising
+ * preference — they remain 'denied' unless the user explicitly grants it.
  */
-export function updateConsent(analyticsGranted) {
+export function updateConsent(analyticsGranted, advertisingGranted = false) {
   if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
     window.gtag('consent', 'update', {
-      analytics_storage: analyticsGranted ? 'granted' : 'denied',
+      analytics_storage:  analyticsGranted   ? 'granted' : 'denied',
+      ad_storage:         advertisingGranted ? 'granted' : 'denied',
+      ad_user_data:       advertisingGranted ? 'granted' : 'denied',
+      ad_personalization: advertisingGranted ? 'granted' : 'denied',
     })
   }
 }
@@ -41,8 +45,9 @@ export function initConsent() {
     const raw = localStorage.getItem('cookie_consent')
     if (!raw) return
     const prefs = JSON.parse(raw)
-    const granted = prefs.all === true || prefs.analytics === true
-    updateConsent(granted)
+    const analyticsGranted   = prefs.all === true || prefs.analytics   === true
+    const advertisingGranted = prefs.all === true || prefs.advertising === true
+    updateConsent(analyticsGranted, advertisingGranted)
   } catch {
     /* ignore JSON parse errors */
   }

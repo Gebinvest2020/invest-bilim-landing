@@ -7,20 +7,6 @@
   <title>Спасибо! Заявка принята — Invest Bilim</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!--
-    ═══════════════════════════════════════════════════════════
-    GOOGLE ADS CONVERSION TRACKING — вставить сюда при подключении
-    ═══════════════════════════════════════════════════════════
-    1. В Google Ads → Инструменты → Конверсии → Новая конверсия
-    2. Тип: страница (URL /thank-you.html)
-    3. Или вставить сгенерированный Global Site Tag (gtag.js) ниже:
-
-    gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXX/XXXXXXXXX'});
-
-    Замените AW-XXXXXXXXX на ваш реальный Conversion ID из аккаунта Google Ads.
-    Добавить внутрь блока generate_lead ниже, после имеющегося вызова.
-    ═══════════════════════════════════════════════════════════
-  -->
 
   <!-- ── Google Consent Mode v2 defaults ─────────────────────────────── -->
   <script>
@@ -39,6 +25,13 @@
       if (_c && (_c.all || _c.analytics)) {
         gtag('consent', 'update', { analytics_storage: 'granted' });
       }
+      if (_c && (_c.all || _c.advertising)) {
+        gtag('consent', 'update', {
+          ad_storage:         'granted',
+          ad_user_data:       'granted',
+          ad_personalization: 'granted'
+        });
+      }
     } catch(e) {}
   </script>
 
@@ -47,6 +40,7 @@
   <script>
     gtag('js', new Date());
     gtag('config', 'G-DXTTCNEN4Y');
+    gtag('config', 'AW-18190765838');
 
     // Fire generate_lead only when the user just submitted the form.
     // The sessionStorage flag is written by LeadForm.jsx before redirect.
@@ -61,6 +55,8 @@
         lead_source:  'website_form',
         cta_location: _src
       });
+      // Google Ads conversion: Заявка Invest Bilim
+      gtag('event', 'conversion', {'send_to': 'AW-18190765838/X-JQCK3O3rMcEI6ehOJD'});
     }
   </script>
 
