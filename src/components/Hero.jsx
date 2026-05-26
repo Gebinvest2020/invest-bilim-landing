@@ -248,8 +248,8 @@ export default function Hero({ onCTA }) {
               className="text-slate-400 mb-8 animate-fade-in-up hero-d3"
               style={{ fontSize: '1.05rem', lineHeight: 1.8, maxWidth: '460px' }}
             >
-              Узнайте, с чего начать изучение инвестиций и какие знания помогут
-              принимать более обдуманные решения.
+              Узнайте, как инвестиции могут помочь в достижении финансовых целей
+              и что важно знать перед первым вложением.
             </p>
 
             {/* Stat chips */}
