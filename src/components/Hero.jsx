@@ -1,4 +1,4 @@
-import { ArrowRight, ShieldCheck } from 'lucide-react'
+import LeadForm from './LeadForm'
 
 const stat = [
   { emoji: '📚', label: '12 видеоуроков',  sub: 'доступны бесплатно' },
@@ -9,7 +9,7 @@ const stat = [
 /* ─── Background SVG noise (data URI) ─────────────────────────────────── */
 const noiseUrl = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`
 
-export default function Hero({ onCTA }) {
+export default function Hero({ onLegal }) {
 
   return (
     <section
@@ -195,11 +195,14 @@ export default function Hero({ onCTA }) {
           {/* ═══════════════════════════════════════════
               ТЕКСТ — в DOM второе (мобайл: снизу),
               на desktop занимает левую колонку order-1
+              Внутри используем flex order для смены порядка на мобайл:
+              mobile:  badge(1) h1(2) subtitle(3) form(4) chips(5)
+              desktop: badge(1) h1(2) divider(3) subtitle(4) chips(5) form(6)
           ═══════════════════════════════════════════ */}
-          <div className="lg:order-1 flex flex-col justify-center px-4 sm:px-6 lg:pl-8 xl:pl-12 lg:pr-4 py-14 lg:py-10">
+          <div className="lg:order-1 flex flex-col justify-center px-4 sm:px-6 lg:pl-8 xl:pl-12 lg:pr-4 py-8 lg:py-10">
 
-            {/* Badge */}
-            <div className="flex self-start mb-7 animate-fade-in-up hero-d0">
+            {/* Badge — order 1 everywhere */}
+            <div className="flex self-start mb-4 lg:mb-7 animate-fade-in-up hero-d0 order-1">
               <span
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-wide"
                 style={{
@@ -217,11 +220,11 @@ export default function Hero({ onCTA }) {
               </span>
             </div>
 
-            {/* Heading */}
+            {/* Heading — order 2 everywhere */}
             <h1
-              className="font-extrabold text-white mb-6 animate-fade-in-up hero-d1"
+              className="font-extrabold text-white mb-3 lg:mb-6 animate-fade-in-up hero-d1 order-2"
               style={{
-                fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)',
+                fontSize: 'clamp(2.2rem, 5.5vw, 4.5rem)',
                 letterSpacing: '-0.038em',
                 lineHeight: 1.07,
               }}
@@ -232,8 +235,8 @@ export default function Hero({ onCTA }) {
               </span>
             </h1>
 
-            {/* Divider */}
-            <div className="mb-6 animate-fade-in-up hero-d2">
+            {/* Divider — hidden on mobile, order 3 on desktop */}
+            <div className="hidden lg:block mb-6 animate-fade-in-up hero-d2 lg:order-3">
               <div
                 className="h-px w-20"
                 style={{
@@ -243,62 +246,53 @@ export default function Hero({ onCTA }) {
               />
             </div>
 
-            {/* Subtitle */}
+            {/* Subtitle — order 3 mobile, order 4 desktop */}
             <p
-              className="text-slate-400 mb-8 animate-fade-in-up hero-d3"
-              style={{ fontSize: '1.05rem', lineHeight: 1.8, maxWidth: '460px' }}
+              className="text-slate-400 mb-4 lg:mb-8 animate-fade-in-up hero-d3 order-3 lg:order-4"
+              style={{ fontSize: '1.05rem', lineHeight: 1.7, maxWidth: '460px' }}
             >
               Узнайте, как инвестиции могут помочь разумнее распоряжаться средствами
               и планировать своё будущее.
             </p>
 
-            {/* Stat chips */}
-            <div className="flex flex-wrap gap-2.5 mb-7 animate-fade-in-up hero-d4">
+            {/* Inline lead form — order 4 mobile, order 6 desktop */}
+            <div
+              className="animate-fade-in-up hero-d5 order-4 lg:order-6 p-4 lg:p-5"
+              style={{
+                maxWidth: '460px',
+                background: 'rgba(10,16,35,0.78)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                borderRadius: '16px',
+                boxShadow: '0 8px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(201,168,76,0.07)',
+              }}
+            >
+              <LeadForm
+                onLegal={onLegal}
+                sourceLocation="hero"
+              />
+            </div>
+
+            {/* Stat chips — order 5 everywhere (after form on mobile, before form on desktop) */}
+            <div className="flex flex-wrap gap-2 lg:gap-2.5 mt-4 mb-2 lg:mt-0 lg:mb-7 animate-fade-in-up hero-d4 order-5">
               {stat.map((s) => (
                 <div
                   key={s.label}
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl"
+                  className="flex items-center gap-2.5 px-3 lg:px-4 py-2 lg:py-2.5 rounded-xl"
                   style={{
                     background: 'rgba(255,255,255,0.046)',
                     border: '1px solid rgba(255,255,255,0.085)',
                     backdropFilter: 'blur(12px)',
                   }}
                 >
-                  <span className="text-[1.1rem] leading-none">{s.emoji}</span>
+                  <span className="text-[1rem] lg:text-[1.1rem] leading-none">{s.emoji}</span>
                   <div>
-                    <div className="text-[13px] font-bold text-white leading-tight">{s.label}</div>
-                    <div className="text-[11px] text-slate-500 leading-tight mt-0.5">{s.sub}</div>
+                    <div className="text-[12px] lg:text-[13px] font-bold text-white leading-tight">{s.label}</div>
+                    <div className="text-[10px] lg:text-[11px] text-slate-500 leading-tight mt-0.5">{s.sub}</div>
                   </div>
                 </div>
               ))}
-            </div>
-
-            {/* CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-6 animate-fade-in-up hero-d5">
-              <button
-                onClick={onCTA}
-                className="btn-gold btn-arrow pulse-gold-glow flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold"
-                style={{ fontSize: '0.9rem' }}
-              >
-                Получить бесплатный доступ
-                <span className="arrow-icon">
-                  <ArrowRight size={17} />
-                </span>
-              </button>
-            </div>
-
-            {/* Disclaimer */}
-            <div
-              className="flex items-start gap-2.5 p-3.5 rounded-xl self-start animate-fade-in-up hero-d6"
-              style={{
-                background: 'rgba(78,205,196,0.05)',
-                border: '1px solid rgba(78,205,196,0.14)',
-              }}
-            >
-              <ShieldCheck size={14} className="mt-0.5 shrink-0" style={{ color: '#4ecdc4' }} />
-              <p className="text-xs leading-relaxed" style={{ color: 'rgba(148,163,184,0.7)' }}>
-                Материалы носят образовательный характер.
-              </p>
             </div>
 
           </div>
